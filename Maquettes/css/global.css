@@ -1,0 +1,42 @@
+body{
+    background-color: rgba(250, 240, 228, 0.3);
+}
+.select{
+    position: relative;
+    padding-left: 30%;
+}
+
+.card1{
+    width: 20%;
+    position: relative;
+    left: 30%;
+    padding-top: 2%;
+}
+
+.card2{
+    width:14%;
+    /* position: relative;
+    left: 30%; */
+    /* padding-top: 2%; */
+    height: 10%;
+}
+.charge{
+    position: relative;
+    padding-top: 5%;
+}
+
+.inBoxFont{
+    font-size: 10px;
+}
+.inBoxFont2{
+    font-size: 12px;
+}
+.table1{
+    width: 30%;
+    position: absolute;
+    left: 60%;
+    top: -290px;
+}
+.selecting{
+    padding-left: 20px;
+}
