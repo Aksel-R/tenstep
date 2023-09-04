@@ -1,0 +1,14 @@
+<div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>ISSUE COUNT BY OWNER &gt; STATUS</h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                     <div><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                    <canvas id="echart_pie" width="1647" height="1317" style="display: block; width: 1647px; height: 1317px;" class="chartjs-render-monitor"></canvas>
+                  
+                  </div>
+                  </div>
+                </div>
+              </div>

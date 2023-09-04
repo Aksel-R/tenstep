@@ -1,0 +1,391 @@
+#myTable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    font-size: small;
+}
+
+#myTable td,
+#myTable th {
+    padding: 8px;
+    text-align: center;
+}
+
+#myTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#myTable tr:hover {
+    background-color: #ddd;
+}
+
+#myTable1 th {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    background-color: #f8b347;
+    color: white;
+    font-size: 15px;
+}
+
+.ms-core-pageTitle {
+    font-size: 2.77em;
+    white-space: nowrap;
+    display: none;
+}
+
+#msTable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#msTable td,
+#msTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#msTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#msTable tr:hover {
+    background-color: #ddd;
+}
+
+#msTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #31752f;
+    color: white;
+}
+
+#msTableav {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#msTableav td,
+#msTableav th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#msTableav tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#msTableav tr:hover {
+    background-color: #ddd;
+}
+
+#msTableav th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #31752f;
+    color: white;
+}
+
+#msTableer {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#msTableer td,
+#msTableer th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#msTableer tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#msTableer tr:hover {
+    background-color: #ddd;
+}
+
+#msTableer th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #31752f;
+    color: white;
+}
+
+#mylist {
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 25%;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    float: right;
+    height: 40px;
+}
+
+#nomprojet {
+    margin-left: 15%;
+    font-weight: bold;
+    color: white;
+    font-size: 22px;
+}
+
+.verti {
+    display: flex;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+
+#wrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+#first {
+    width: 20%;
+    float: left;
+}
+
+#second {
+    overflow: hidden;
+}
+
+#wrapper2 {
+    overflow: hidden;
+}
+
+#first2 {
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+
+#second2 {
+    width: 50%;
+    overflow: hidden;
+    text-align: center;
+}
+
+#headercolor {
+    background: #f09609;
+    padding: 10px;
+    margin: 0 0 10px 0;
+    text-align: right;
+    border-radius: 5px;
+}
+
+#headercolor span {
+    float: left;
+    padding-top: 10px;
+}
+
+.smallRisks {
+    float: left;
+    font-weight: bold;
+    color: white;
+    padding: 5px;
+}
+
+select:invalid {
+    color: gray;
+}
+
+.menu {
+    float: left;
+    width: 20%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.menu ul li {
+    padding: 8px;
+    margin-top: 7px;
+    display: block;
+    width: 100%;
+    color: black;
+    box-sizing: border-box;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, .125);
+}
+
+.main {
+    float: left;
+    width: 80%;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+@media only screen and (max-width:620px) {
+    /* For mobile phones: */
+    .menu,
+    .main {
+        width: 100%;
+    }
+}
+
+#myTable {
+    overflow: hidden;
+}
+
+.glissicon {
+    content: "";
+    background-image: url('/PWA/_catalogs/masterpage/Suivi_projet/img/Nombre-projet.png');
+    width: 75px;
+    /*WIDTH of the icon*/
+    height: 75px;
+    /*HEIGHT of the icon*/
+    display: inline-block;
+    background-position: center;
+    background-size: cover;
+}
+
+.iconmoney1 {
+    content: "";
+    background-image: url('/PWA/_catalogs/masterpage/Suivi_projet/img/Cout-des-projets.png');
+    width: 82px;
+    /*WIDTH of the icon*/
+    height: 80px;
+    /*HEIGHT of the icon*/
+    display: inline-block;
+    background-position: center;
+    background-size: cover;
+}
+
+.iconmoney2 {
+    content: "";
+    background-image: url('/PWA/_catalogs/masterpage/Suivi_projet/img/Ecart-de-cout.png');
+    width: 75px;
+    /*WIDTH of the icon*/
+    height: 75px;
+    /*HEIGHT of the icon*/
+    display: inline-block;
+    background-position: center;
+    background-size: cover;
+    margin-left: 0px;
+}
+
+.iconmoney3 {
+    content: "";
+    background-image: url('/PWA/_catalogs/masterpage/Suivi_projet/img/Travail-de-projet.png');
+    width: 75px;
+    /*WIDTH of the icon*/
+    height: 75px;
+    /*HEIGHT of the icon*/
+    display: inline-block;
+    background-position: center;
+    background-size: cover;
+    margin-left: 0px;
+}
+
+.iconmoney4 {
+    content: "";
+    background-image: url('/PWA/_catalogs/masterpage/Suivi_projet/img/ecart-travail.png');
+    width: 75px;
+    /*WIDTH of the icon*/
+    height: 75px;
+    /*HEIGHT of the icon*/
+    display: inline-block;
+    background-position: center;
+    background-size: cover;
+    margin-left: 0px;
+}
+
+.bellsign {
+    content: "";
+    background-image: url('/PWA/_catalogs/masterpage/Suivi_projet/img/risk.png');
+    width: 75px;
+    /*WIDTH of the icon*/
+    height: 75px;
+    /*HEIGHT of the icon*/
+    display: inline-block;
+    background-position: center;
+    background-size: cover;
+    margin-left: 0px;
+}
+
+.warning {
+    content: "";
+    background-image: url('/PWA/_catalogs/masterpage/Suivi_projet/img/Nombre-probleme.png');
+    width: 75px;
+    /*WIDTH of the icon*/
+    height: 75px;
+    /*HEIGHT of the icon*/
+    display: inline-block;
+    background-position: center;
+    background-size: cover;
+    margin-left: 0px;
+}
+
+.stat-widget-one .stat-icon i {
+    border: 0;
+    padding: 30px;
+    border-radius: 0px;
+}
+
+#titdiv {
+    width: 100%;
+    text-align: center;
+    background-color: #31752f;
+}
+
+#descrtext {
+    padding: 20px;
+    font-weight: bold;
+    color: white;
+    font-size: 23px;
+}
+
+#textdescr {
+    padding: 20px;
+}
+
+#descrdiv {
+    width: 100%;
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+#msTable tr>*:nth-child(1) {
+    display: none;
+}
+
+#msTableav tr>*:nth-child(1) {
+    display: none;
+}
+
+#msTableer tr>*:nth-child(1) {
+    display: none;
+}
+
+#msTable tr>*:nth-child(3) {
+    display: none;
+}
+
+#msTableav tr>*:nth-child(3) {
+    display: none;
+}
+
+#msTableer tr>*:nth-child(3) {
+    display: none;
+}
+
+#titreProjet {
+    font-weight: bolder;
+    color: aliceblue;
+    font-size: xx-large;
+    margin-left: 35%;
+}

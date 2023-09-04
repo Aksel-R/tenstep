@@ -1,0 +1,38 @@
+
+.form-item__element {
+  display: inline-block;
+  padding: 0.5em;
+  vertical-align: middle;
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid gray;
+  width:200px;
+}
+
+.form-item__element option {
+  color: #444;
+  font-size: 14pt ;
+}
+
+body{
+     background-color: #F3F3F9 !important
+ }
+ .ms-core-overlay{
+     background-color: #F3F3F9 !important
+ }
+ 
+ #datatable tr > *:nth-child(8) {
+    display: none;
+}
+
+#datatable tr > *:nth-child(9) {
+    display: none;
+}
+
+#datatable tr > *:nth-child(10) {
+    display: none;
+}
+
+#datatable tr > *:nth-child(11) {
+    display: none;
+}

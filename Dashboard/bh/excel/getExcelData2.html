@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+    <title>EmployeeDetails</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.7/xlsx.core.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.core.min.js" type="text/javascript"></script>
+
+     <script src="/sites/PWA/_catalogs/masterpage/Dashboard/excel_BH/javascript/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.SPServices/2014.02/jquery.SPServices-2014.02.js"></script>
+ <script src='https://ajax.aspnetcdn.com/ajax/4.0/1/MicrosoftAjax.js'></script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharepointplus/browser/sharepointplus.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+    <script type="text/javascript">
+        function ExportToTable() {
+            $('#loading').show();
+            var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xlsx|.xls)$/;
+            if (regex.test($("#excelfile").val().toLowerCase())) {
+                var xlsxflag = false;
+                if ($("#excelfile").val().toLowerCase().indexOf(".xlsx") > 0) {
+                    xlsxflag = true;
+                }
+                if (typeof (FileReader) != "undefined") {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        var data = e.target.result;
+                        if (xlsxflag) {
+                            var workbook = XLSX.read(data, { type: 'binary' });
+                        }
+                        else {
+                            var workbook = XLS.read(data, { type: 'binary' });
+                        }
+                        var sheet_name_list = workbook.SheetNames;
+                        var cnt = 0;
+                        sheet_name_list.forEach(function (y) {
+                            if (xlsxflag) {
+                                var exceljson = XLSX.utils.sheet_to_json(workbook.Sheets[y]);
+                            }
+                            else {
+                                var exceljson = XLS.utils.sheet_to_row_object_array(workbook.Sheets[y]);
+                            }
+                            if (exceljson.length > 0 && cnt == 0) {
+                                BindTable(exceljson, '#exceltable');
+                                exceljson.forEach(function (excelRow) {
+                                    if (excelRow != null && Object.keys(excelRow).length > 0 && excelRow["Employee ID"] != null && excelRow["Employee ID"].toString() != "") {
+                                        getEmployeeDetailsByEmployeeID(excelRow["Employee ID"].toString().trim(), excelRow);
+                                    }
+                                });
+                                cnt++;
+                            }
+                        });
+                        $('#loading').hide();
+                        $('#exceltable').show();
+                    }
+                    if (xlsxflag) {
+                        reader.readAsArrayBuffer($("#excelfile")[0].files[0]);
+                    }
+                    else {
+                        reader.readAsBinaryString($("#excelfile")[0].files[0]);
+                    }
+                }
+                else {
+                    $('#loading').hide();
+                    alert("Sorry! Your browser does not support HTML5!");
+                }
+            }
+            else {
+                $('#loading').hide();
+                alert("Please upload a valid Excel file!");
+            }
+        }
+        function BindTable(jsondata, tableid) {
+            var columns = BindTableHeader(jsondata, tableid);
+            for (var i = 0; i < jsondata.length; i++) {
+                var row$ = $('<tr/>');
+                for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+                    var cellValue = jsondata[i][columns[colIndex]];
+                    if (cellValue == null)
+                        cellValue = "";
+                    row$.append($('<td/>').html(cellValue));
+                }
+                $(tableid).append(row$);
+            }
+        }
+        function BindTableHeader(jsondata, tableid) {
+            var columnSet = [];
+            var headerTr$ = $('<tr/>');
+            for (var i = 0; i < jsondata.length; i++) {
+                var rowHash = jsondata[i];
+                for (var key in rowHash) {
+                    if (rowHash.hasOwnProperty(key)) {
+                        if ($.inArray(key, columnSet) == -1) {
+                            columnSet.push(key);
+                            headerTr$.append($('<th/>').html(key));
+                        }
+                    }
+                }
+            }
+            $(tableid).append(headerTr$);
+            return columnSet;
+        }
+        function getEmployeeDetailsByEmployeeID(EmployeeIDValue, excelRow) {
+            var objHeaders = {
+                type: "GET",
+                headers: {
+                    "accept": "application/json;odata=verbose"
+                },
+                async: false,
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'include'
+            }
+            fetch(_spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Employee Details')/items?$filter=Employee_x0020_ID eq '" + EmployeeIDValue + "'&$select=ID,Title,Employee_x0020_ID,Address&$orderby=ID", objHeaders)
+                .then(function (response) {
+                    return response.json()
+                })
+            .then(function (json) {
+                var results = json.d.results;
+                if (results.length > 0) {
+                    for (i in results) {
+                        updateEmployeeDetailsListItem(results[i].ID, excelRow);
+                    }
+                }
+                else {
+                    createEmployeeDetailsListItem(excelRow);
+                }
+            })
+            .catch(function (ex) {
+                console.log("error");
+            });
+        }
+        function updateEmployeeDetailsListItem(itemID, excelRow) {
+            $.ajax
+            ({
+                url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Employee Details')/items(" + itemID + ")",
+                type: "POST",
+                data: JSON.stringify
+                ({
+                    __metadata:
+                    {
+                        type: "SP.Data.EmployeeDetailsListItem"
+                    },
+                    Employee_x0020_ID: excelRow["Employee ID"],
+                    Address: excelRow["Address"]
+                }),
+                headers:
+                {
+                    "Accept": "application/json;odata=verbose",
+                    "Content-Type": "application/json;odata=verbose",
+                    "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                    "IF-MATCH": "*",
+                    "X-HTTP-Method": "MERGE"
+                },
+                async: false,
+                success: function (data, status, xhr) {
+                    console.log("success");
+                },
+                error: function (xhr, status, error) {
+                    console.log("errro");
+                }
+            });
+        }
+        function createEmployeeDetailsListItem(excelRow) {
+            $.ajax
+                ({
+                    url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Employee Details')/items",
+                    type: "POST",
+                    data: JSON.stringify
+                    ({
+                        __metadata:
+                        {
+                            type: "SP.Data.EmployeeDetailsListItem"
+                        },
+                        Title: excelRow["Employee Name"],
+                        Employee_x0020_ID: excelRow["Employee ID"],
+                        Address: excelRow["Address"]
+                    }),
+                    headers:
+                    {
+                        "Accept": "application/json;odata=verbose",
+                        "Content-Type": "application/json;odata=verbose",
+                        "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                        "X-HTTP-Method": "POST"
+                    },
+                    success: function (data, status, xhr) {
+                        console.log("success");
+                    },
+                    error: function (xhr, status, error) {
+                        console.log("error");
+                    }
+                });
+        }
+    </script>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:_dlc_DocId msdt:dt="string">APVQKZXF5JT7-1167987446-823</mso:_dlc_DocId>
+<mso:_dlc_DocIdItemGuid msdt:dt="string">33212bf8-c9cb-4856-88a1-71c070d8cd40</mso:_dlc_DocIdItemGuid>
+<mso:_dlc_DocIdUrl msdt:dt="string">http://tenstep-ppm/sites/PWA/_layouts/15/DocIdRedir.aspx?ID=APVQKZXF5JT7-1167987446-823, APVQKZXF5JT7-1167987446-823</mso:_dlc_DocIdUrl>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body>
+    <input type="file" id="excelfile" />
+    <input type="button" id="viewfile" value="Export To Table and SPList" onclick="ExportToTable()" /> <br />
+    Reference <br />
+    <a href="https://github.com/SheetJS/js-xlsx">https://github.com/SheetJS/js-xlsx</a> <br />
+    <a href="https://github.com/SheetJS/js-xls">https://github.com/SheetJS/js-xlsx</a> <br />
+    <p id="loading" style="display:none;">Loading please wait. <i class="fa fa-spinner fa-spin" style="font-size:24px;"></i> </p> <br />
+    <table id="exceltable"></table> <br />
+</body>
+</html>

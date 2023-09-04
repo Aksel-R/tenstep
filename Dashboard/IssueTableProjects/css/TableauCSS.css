@@ -1,0 +1,219 @@
+    #headercolor {
+        background: #31752f;
+        padding: 35px;
+        margin: 0 0 10px 0;
+        text-align: left;
+        size: auto;
+        border-radius: 15px 15px 0px 0px;
+    }
+
+    #headercolor span{
+    float: left;
+    font-size: 20px;
+    padding-top: 5px;
+  }
+
+
+    .smallRisks {
+        font-size: 200%;
+        float: left;
+        font-weight: bold;
+        color : white;
+    }
+
+   #tableaux th {
+    background-color: #31752f;
+    color: white;
+    text-align:center;
+    font-weight:bold;
+    font-size: 16px;
+  }
+
+
+  #tableaux thead th:first-child {
+    border-radius: 15px 0px 0px 0px;
+  }
+
+    #tableaux thead th:nth-child(8) {
+    border-radius: 0px 15px 0px 0px;
+  }
+
+
+  #exampleFormControlTextarea4 {
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 15%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-left:50px;
+  }
+
+
+      .ms-rtestate-field h1, h1.ms-rteElement-H1, .ms-rtestate-field h2, h2.ms-rteElement-H2 {
+        line-height: 1.4;
+        color: #000;
+      }
+
+
+    .glyphicon {
+        position: relative;
+        top: 1px;
+        display: inline-block;
+        font-family: "Glyphicons Halflings";
+        font-style: normal;
+        font-weight: 200;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .w3-spin {
+        animation: w3-spin 2s infinite linear;
+    }
+
+    .w3-jumbo {
+        font-size: 25px!important;
+        color:green;
+    }
+
+    .nav_menu {
+        float: left;
+        background: #0072c6;
+        border-bottom: 1px solid #D9DEE4;
+        margin-bottom: 10px;
+        width: 100%;
+        position: relative;
+    }
+
+    #tableauxGlissement th {
+        text-align: center;
+        background-color: #4CAF50;
+        color: white;
+        font-weight:bold;
+        font-size: 20px;
+    }
+
+    #tableauxGlissement td {
+        text-align: center;
+        padding :20px;
+        color: black;
+        font-size: 17px;
+        border-radius: 15px 15px 15px 15px;
+    }
+
+    #tableaux2 td{
+        text-align: center;
+        padding :20px;
+        color: black;
+        font-size: 17px;
+
+    }
+
+    #tableaux2 th {
+        text-align: center;
+        background-color: #4CAF50;
+        color: white;
+        font-weight:bold;
+        font-size: 14px;
+    }                                           
+     .id{
+        background-color: #4CAF50;
+      }
+
+    #tableaux2 td {
+        display: block;
+        background-color: #4CAF50;
+        color: white;
+        font-weight:bold;
+        font-size: 14px;
+    }
+
+    td.res2{
+      margin-bottom: 10px;
+    }
+
+    
+  #mylist1 {
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 15%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-left:50px;
+    border-radius : 15px 15px 0px 0px;
+  }
+
+  #mylist2 {
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 15%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    border-radius : 15px 15px 0px 0px;
+  }
+  #mylist3 {
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 18%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    border-radius : 15px 15px 0px 0px;
+  }
+
+  td:empty {background: #f7f7f7;}
+
+
+
+  .form-item__element {
+  display: inline-block;
+  padding: 0.5em;
+  vertical-align: middle;
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid gray;
+  width:200px;
+}
+
+.form-item__element option {
+  color: #444;
+  font-size: 14pt ;
+}
+
+
+.h3, h3 {
+    font-size: 16px;
+    position: relative;
+    top: -11px;
+}
+
+
+
+/*.h3, h3 {
+    font-size: 16px;
+    background-color: #31752f;
+    position: relative;
+    top: -11px;
+}
+
+
+.ms-accentText, .ms-accentText:visited {
+    color: #f7f7f7;
+}*/
+/*
+.h3, h3:after {
+    display:block;
+    border:2px solid #d0d0d0;
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
+    -webkit-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
+    -moz-box-shadow:inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+*/
+
+

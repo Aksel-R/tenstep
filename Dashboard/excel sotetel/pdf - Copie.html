@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
+  
+  <link rel="stylesheet" href="/sites/bhcom/_catalogs/masterpage/Dashboard/excel_BH/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="/sites/bhcom/_catalogs/masterpage/Dashboard/excel_BH/css/bootstrap.css" >
+  <link rel="stylesheet" href="/sites/bhcom/_catalogs/masterpage/Dashboard/excel_BH/css/style.css" >
+  <link rel="stylesheet" href="/sites/bhcom/_catalogs/masterpage/Dashboard/excel_BH/css/achevement.css"  >
+  <link rel="stylesheet" href="/sites/bhcom/_catalogs/masterpage/Dashboard/excel_BH/css/w3.css" >
+  <link rel="stylesheet" href="/sites/bhcom/_catalogs/masterpage/Dashboard/excel_BH/css/fontawesome.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style type="text/css">
+    .ms-core-listMenu-verticalBox,
+        .ms-core-listMenu-horizontalBox {
+            font-size: 0.9em;
+        }
+  .navbar-inverse {
+            background-color: #337ab7;
+            border-color: #337ab7;
+        }
+
+
+        .btn-group-vertical>.btn-group:after,
+        .btn-group-vertical>.btn-group:before,
+        .btn-toolbar:after,
+        .btn-toolbar:before,
+        .clearfix:after,
+        .clearfix:before,
+        .container1-fluid:after,
+        .container1-fluid:before,
+        .container1:after,
+        .container1:before,
+        .dl-horizontal dd:after,
+        .dl-horizontal dd:before,
+        .form-horizontal .form-group:after,
+        .form-horizontal .form-group:before,
+        .modal-footer:after,
+        .modal-footer:before,
+        .modal-header:after,
+        .modal-header:before,
+        .nav:after,
+        .nav:before,
+        .navbar-collapse:after,
+        .navbar-collapse:before,
+        .navbar-header:after,
+        .navbar-header:before,
+        .navbar:after,
+        .navbar:before,
+        .pager:after,
+        .pager:before,
+        .panel-body:after,
+        .panel-body:before,
+        .row:after,
+        .row:before {
+            display: none;
+            content: " ";
+        }
+        span#DeltaPlaceHolderPageTitleInTitleArea {
+    display: none;
+}
+th {
+    font-size: large;
+}
+text.highcharts-credits {
+    display: none;
+}
+.panel-primary {
+    border-color: #337ab7;
+    box-shadow: 0px 4px 8px 0px rgb(0 0 0);
+    border-radius: 6px;
+}
+
+.panel-primary>.panel-heading {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+
+.header1 {
+    
+    border: solid;
+    border-color: #99a6b1;
+    
+}
+
+
+table {
+            border-collapse: collapse;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+       .tableFixHead thead th {
+            position: sticky;
+            top: 0;
+          }
+          #exceltable{
+            width: 99%;
+          }
+          #exceltable thead th :first-child {
+            width:20%;
+          }
+          #exceltable thead th :second-child {
+            width:20%;
+          }
+          #exceltable thead th :third-child {
+            width:60%;
+          }
+ .ms-rtestate-field h1, h1.ms-rteElement-H1, .ms-rtestate-field h2, h2.ms-rteElement-H2 {
+    line-height: 1.4;
+    color: #444444;
+}
+th {
+    background-color: #337ab7;
+    color: #fff;
+}
+
+.ms-quicklaunchouter.ms-core-sideNavBox-removeLeftMargin {
+    display: none;
+}
+input#viewfile {
+    background-color: #cce1f3;
+    border-bottom-color: black;
+    color: black;
+}
+input#excelfile {
+    background-color: #cce1f3;
+    border-bottom-color: black;
+    color: black;
+}
+  </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.7/xlsx.core.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xls/0.7.4-a/xls.core.min.js" type="text/javascript"></script>
+
+<script src="/sites/bhcom/_catalogs/masterpage/Dashboard/excel_BH/javascript/jquery-3.5.1.js" type="text/javascript"></script>
+
+
+
+
+
+    <script type="text/javascript">
+
+        function ExportToTable() {
+            $('#exceltable').empty();
+            $('#loading').show();
+            var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.xlsx|.xls)$/;
+            if (regex.test($("#excelfile").val().toLowerCase())) {
+                var xlsxflag = false;
+                if ($("#excelfile").val().toLowerCase().indexOf(".xlsx") > 0) {
+                    xlsxflag = true;
+                }
+                if (typeof (FileReader) != "undefined") {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        var data = e.target.result;
+                        if (xlsxflag) {
+                            var workbook = XLSX.read(data, { type: 'binary' });
+                        }
+                        else {
+                            var workbook = XLS.read(data, { type: 'binary' });
+                        }
+                        var sheet_name_list = workbook.SheetNames;
+                        var cnt = 0;
+                        sheet_name_list.forEach(function (y) {
+                            if (xlsxflag) {
+                                var exceljson = XLSX.utils.sheet_to_json(workbook.Sheets[y]);
+                            }
+                            else {
+                                var exceljson = XLS.utils.sheet_to_row_object_array(workbook.Sheets[y]);
+                            }
+                            if (exceljson.length > 0 && cnt == 0) {
+                                BindTable(exceljson, '#exceltable');
+                                exceljson.forEach(function (excelRow) {
+                                    
+                                    if (excelRow != null && Object.keys(excelRow).length > 0 && excelRow["Identifiant"] != null && excelRow["Identifiant"].toString() != "") {
+                                        getEmployeeDetailsByEmployeeID(excelRow["Identifiant"].toString().trim(), excelRow);
+                                    }
+                                });
+                                cnt++;
+                            }
+                        });
+                        $('#loading').hide();
+
+                        $('#exceltable').show();
+                    }
+                    if (xlsxflag) {
+                        reader.readAsArrayBuffer($("#excelfile")[0].files[0]);
+                    }
+                    else {
+                        reader.readAsBinaryString($("#excelfile")[0].files[0]);
+                    }
+                }
+                else {
+                    $('#loading').hide();
+                    alert("Sorry! Your browser does not support HTML5!");
+                }
+            }
+            else {
+                $('#loading').hide();
+                alert("Please upload a valid Excel file!");
+            }
+        }
+
+        function BindTable(jsondata, tableid) {
+            var columns = BindTableHeader(jsondata, tableid);
+            for (var i = 0; i < jsondata.length; i++) {
+                var row$ = $('<tr/>');
+                for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+                    var cellValue = jsondata[i][columns[colIndex]];
+                    if (cellValue == null)
+                        cellValue = "";
+                    row$.append($('<td/>').html(cellValue));
+                }
+                $(tableid).append(row$);
+            }
+        }
+
+        function BindTableHeader(jsondata, tableid) {
+            var columnSet = [];
+            var headerTr$ = $('<tr/>');
+            for (var i = 0; i < jsondata.length; i++) {
+                var rowHash = jsondata[i];
+                for (var key in rowHash) {
+                    if (rowHash.hasOwnProperty(key)) {
+                        if ($.inArray(key, columnSet) == -1) {
+                            columnSet.push(key);
+                            headerTr$.append($('<th/>').html(key));
+                        }
+                    }
+                }
+            }
+            $(tableid).append(headerTr$);
+            return columnSet;
+        }
+
+        function getEmployeeDetailsByEmployeeID(EmployeeIDValue, excelRow) {
+      
+            var objHeaders = {
+                type: "GET",
+                headers: {
+                    "accept": "application/json;odata=verbose"
+                },
+                async: false,
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'include'
+            }
+            fetch(_spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('Notation')/items?$filter=Title eq '" + EmployeeIDValue + "'&$select=ID,Title,Raison_x0020_sociale,Note_x0020_2022&$orderby=ID", objHeaders)
+                .then(function (response) {
+                    return response.json()
+                })
+            .then(function (json) {
+                var results = json.d.results;
+                if (results.length > 0) {
+                    for (i in results) {
+                        updateEmployeeDetailsListItem(results[i].ID, excelRow);
+
+                    }
+                }
+                else {
+                    console.log("length = 0 ");
+                    createEmployeeDetailsListItem(excelRow);
+              
+                }
+            })
+            .catch(function (ex) {
+                console.log("error");
+            });
+        }
+
+        function updateEmployeeDetailsListItem(itemID, excelRow) {
+            $.ajax({
+                url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Notation')/items(" + itemID + ")",
+                type: "POST",
+                data: JSON.stringify
+                ({
+                    __metadata:
+                    {
+                        type: "SP.Data.NotationListItem"
+                    },
+                    Title: excelRow["Identifiant"],
+                    Raison_x0020_sociale: excelRow["Raison sociale"],
+                    Note_x0020_2022: excelRow["Note 2022"]
+                }),
+                headers:
+                {
+                    "Accept": "application/json;odata=verbose",
+                    "Content-Type": "application/json;odata=verbose",
+                    "X-RequestDigest": $("#__REQUESTDIGEST").val(),
+                    "IF-MATCH": "*",
+                    "X-HTTP-Method": "MERGE"
+                },
+                async: false,
+                success: function (data, status, xhr) {
+                    console.log("success");
+                },
+                error: function (xhr, status, error) {
+                    console.log("errro");
+                }
+            });
+        }
+
+
+function createEmployeeDetailsListItem(excelRow){
+        var data = {
+
+            __metadata:{ type: "SP.Data.NotationListItem"},
+
+                        Title: excelRow["Identifiant"],
+                        Raison_x0020_sociale: excelRow["Raison sociale"],
+                        Note_x0020_2022: excelRow["Note 2022"]
+
+      };
+
+
+
+        $.ajax({
+
+                   url:  _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Notation')/items",
+
+                   method: "POST",
+                   data: JSON.stringify(data),
+                   headers: { 
+                    "Accept": "application/json; odata=verbose",
+                    "Content-Type": "application/json;odata=verbose",
+                     "X-RequestDigest": $("#__REQUESTDIGEST").val()                                  
+
+                   },
+
+                   success: function (data) {
+
+                              //alert('Item added successfully');
+
+                  },
+
+                  error: function (error) {
+
+                      //alert("Error: "+ JSON.stringify(error));
+
+                 }
+
+          });
+}
+
+
+
+//AddFile
+          
+var fileInput;  
+$(document)  
+    .ready(function () {  
+        fileInput = $("#excelfile");  
+        SP.SOD.executeFunc('sp.js', 'SP.ClientContext', registerClick);  
+    });  
+  
+function registerClick() {  
+    //Register File Upload Click Event   
+    $("#viewfile").click(readFile);  
+}  
+var arrayBuffer;  
+  
+function readFile() {  
+    
+    //Get File Input Control and read th file name  
+    var element = document.getElementById("excelfile");  
+    var file = element.files[0];  
+    var parts = element.value.split("\\");  
+    var fileName = parts[parts.length - 1];  
+    
+    //Read File contents using file reader  
+    var reader = new FileReader();  
+    reader.onload = function (e) {  
+        //uploadFile(e.target.result, fileName); 
+        uploadFile(e.target.result, fileName);  
+        updateFile1(e.target.result, fileName);
+    }  
+    reader.onerror = function (e) {  
+        alert(e.target.error);  
+    }  
+    reader.readAsArrayBuffer(file);  
+}  
+
+
+
+function QuerySuccess() {  
+    console.log('File Uploaded Successfully.');  
+    //alert("File Uploaded Successfully.");  
+}  
+  
+function QueryFailure(sender, args) {  
+    console.log('Request failed with error message - ' + args.get_message() + ' . Stack Trace - ' + args.get_stackTrace());  
+//alert("Request failed with error message - " + args.get_message() + " . Stack Trace - " + args.get_stackTrace());  
+} 
+
+
+
+
+var attachmentFiles;  
+  
+function uploadFile(arrayBuffer, fileName) {  
+    //Get Client Context,Web and List object.
+    //var siteUrl = "/sites/PWA/Axe_7_Centre_de_compétence/";  
+    var clientContext = new SP.ClientContext(_spPageContextInfo.webAbsoluteUrl);  
+    var oWeb = clientContext.get_web();  
+    var oList = oWeb.get_lists().getByTitle('Pièces jointes notes');  
+    
+    //Convert the file contents into base64 data  
+ var bytes = new Uint8Array(arrayBuffer);  
+    var i, length, out = '';  
+    for (i = 0, length = bytes.length; i < length; i += 1) {  
+        out += String.fromCharCode(bytes[i]);  
+    }  
+    var base64 = btoa(out);  
+    //Create FileCreationInformation object using the read file data  
+    var createInfo = new SP.FileCreationInformation();  
+    createInfo.set_content(base64);  
+    createInfo.set_url(fileName);  
+    
+    //Add the file to the library  
+    var uploadedDocument = oList.get_rootFolder().get_files().add(createInfo);  
+    //Load client context and execcute the batch  
+    clientContext.load(uploadedDocument);  
+    clientContext.executeQueryAsync(QuerySuccess, QueryFailure);  
+}
+
+
+
+
+
+function updateFile1(arrayBuffer,fileName)   
+{  
+var clientContext;  
+var oWebsite;  
+var oList;  
+var fileCreateInfo;  
+var fileContent;  
+clientContext = new SP.ClientContext(_spPageContextInfo.webAbsoluteUrl);  
+oWebsite = clientContext.get_web();  
+oList = oWebsite.get_lists().getByTitle("Pièces jointes notes");  
+
+
+fileCreateInfo = new SP.FileCreationInformation();  
+
+fileCreateInfo.set_url(fileName);  
+
+
+fileCreateInfo.set_overwrite(true);  
+
+
+
+//fileContent = "The updated content of my file";  
+var bytes = new Uint8Array(arrayBuffer); 
+var i, length, out = '';   
+for (i = 0, length = bytes.length; i < length; i += 1) {    
+out += String.fromCharCode(bytes[i]); 
+}  
+
+var base64 = btoa(out); 
+fileCreateInfo.set_content(base64);  
+
+this.existingFile = oList.get_rootFolder().get_files().add(fileCreateInfo);  
+
+clientContext.load(this.existingFile);  
+
+clientContext.executeQueryAsync(  
+Function.createDelegate(this, QuerySuccess),  
+Function.createDelegate(this, QueryFailure)  
+);  
+ 
+}
+  
+
+    </script>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:_dlc_DocId msdt:dt="string">APVQKZXF5JT7-1167987446-829</mso:_dlc_DocId>
+<mso:_dlc_DocIdItemGuid msdt:dt="string">574cf29e-7a3a-4144-a324-c1d7c543428f</mso:_dlc_DocIdItemGuid>
+<mso:_dlc_DocIdUrl msdt:dt="string">http://tenstep-ppm/sites/PWA/_layouts/15/DocIdRedir.aspx?ID=APVQKZXF5JT7-1167987446-829, APVQKZXF5JT7-1167987446-829</mso:_dlc_DocIdUrl>
+<mso:DefaultCssFile msdt:dt="string"></mso:DefaultCssFile>
+<mso:MasterPageDescription msdt:dt="string"></mso:MasterPageDescription>
+<mso:UIVersion msdt:dt="string">;#15;#</mso:UIVersion>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+<title>Charger Notations Clients</title></head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="border-radius: 5px; box-shadow: 0px 4px 8px 0px rgb(0 0 0 / 100%);">
+        <ul class="nav navbar-right top-nav"  style="padding-left: 0px; padding-right: 0px;width: 40%;">
+            <h3 id="titre" style="color: white; float: left; margin-bottom: 0px;margin-top: 0px;">Charger Notations Clients : 
+            </h3>
+        </ul>
+        <label style="color: #fff;" >Cliquez ici pour charger le fichier -></label>
+        <input type="file" id="excelfile" />
+    <input type="button" id="viewfile" value="Valider" onclick="ExportToTable()" /> <br />
+    </nav>
+    
+    
+    <div class="row">
+        <h3 style="margin-left: 20px;">Pour télécharger le fichier, merci de consulter le lien suivant: <a id="link" href="http://fsharepoint/sites/bhcom/Pices%20jointes%20notes/Forms/AllItems.aspx?InitialTabId=Ribbon%2ERead&VisibilityContext=WSSTabPersistence">Pièces jointes notes clients</a> <br /></h3>
+    </div>
+    <div class="row">
+        <h3 style="margin-left: 20px;">Pour connaître la liste des données, veuillez cliquer sur le lien suivant : <a id="link" href="http://fsharepoint/sites/bhcom/Lists/Notation/AllItems.aspx">Liste des notes clients</a> <br /></h3>
+    </div>
+
+
+    <table id="exceltable" class="table table-striped  jambo_table bulk_action no-footer-border"style="box-shadow: 0px 4px 8px 0px rgb(0 0 0 / 100%);"></table> <br />
+</body>
+</html>

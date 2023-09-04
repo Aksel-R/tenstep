@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css"
+    href=" /sites/Secteur_Bank/_catalogs/masterpage/Dashboard/attijari_test/css/global.css">
+  <link rel="stylesheet" type="text/css" href="css/global.css">
+
+  <title>Document</title>
+
+</head>
+
+<body>
+
+
+  <!-- <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Controle</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="navbar-nav ">
+
+        <li class="nav-item">
+          <select class="form-control selecting selecting firstSelect"  aria-label="Disabled select example"
+            onchange="firstFilterHandler()">
+            <option selected value="first">Choisir un portefeuille:</option>
+
+          </select>
+        </li>
+        <li class="nav-item">
+          <select class="form-control selecting selecting secondSelect"  aria-label="Disabled select example"
+            onchange="secondFilterHandler()" disabled>
+            <option selected value="second">Choisir un Programme:</option>
+
+          </select>
+        </li>
+        <li class="nav-item">
+          <select class="form-control selecting thirdSelect" aria-label="Disabled select example" 
+            onchange="thirdFilterHandler()" disabled>
+            <option selected value="third">Choisir un Projet:</option>
+
+          </select>
+        </li>
+
+      </ul>
+    </div>
+  </div> -->
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-danger">
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+      data-toggle="collapse" data-target="#navbarNav" data-bs-target="#offcanvasScrolling"
+      aria-controls="offcanvasScrolling" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+
+    <div class="collapse navbar-collapse select" id="navbarNav">
+      <img class="img" src="https://www.charika.ma//ressources/logo/1762.jpg"
+        style="width: 100px; position: relative; left: -30%;" />
+
+      <h1 class="h1">APPERCU DE PORTEFEUILLE</h1>
+      <div id="selects">
+        <ul class="navbar-nav ">
+
+          <li class="nav-item">
+            <select class="form-control selecting selecting firstSelect oneSelect" aria-label="Disabled select example"
+              onchange="firstFilterHandler()">
+              <option selected value="first">Choisir un portefeuille:</option>
+
+            </select>
+          </li>
+          <li class="nav-item">
+            <select class="form-control selecting selecting secondSelect oneSelect" aria-label="Disabled select example"
+              onchange="secondFilterHandler()" disabled>
+              <option selected value="second">Choisir un Programme:</option>
+
+            </select>
+          </li>
+          <li class="nav-item">
+            <select class="form-control selecting thirdSelect oneSelect" aria-label="Disabled select example"
+              onchange="thirdFilterHandler()" disabled>
+              <option selected value="third">Choisir un Projet:</option>
+
+            </select>
+          </li>
+
+        </ul>
+      </div>
+
+
+    </div>
+
+  </nav>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col card1 text-center">
+      <div class="card h-100">
+        <img
+          src="https://everythingproperty.co.za/wp-content/uploads/2022/12/23-tips-to-run-your-business-better-in-2023--2048x1152.jpg"
+          class="card-img-top" alt="...">
+        <div class="card-body text-bg-danger">
+          <p id="firstCard" class="card-title h2" style="color: rgb(255, 255, 255);">%achevé du portefeuille</p>
+
+          <p id="acheve" class="card-text p">X %</p>
+        </div>
+      </div>
+    </div>
+    <div class="col card1 text-center">
+      <div class="card h-100">
+        <img
+          src="https://everythingproperty.co.za/wp-content/uploads/2022/12/23-tips-to-run-your-business-better-in-2023--2048x1152.jpg"
+          class="card-img-top" alt="...">
+        <div class="card-body text-bg-danger">
+          <p class="card-title h2" id="secondCard" style="color: rgb(255, 255, 255);">Nombre de portefeuille</p>
+          <p class="card-text p" id="prog">X Programmes</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="charge">
+    <div class="cards">
+      <div class="position">
+        <p class="h2" id="charge">Charge de travail du portefeuille (en heure (h)):</p>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col card2 text-center">
+            <div class="card h-100 text-bg-danger mb-3">
+              <div class="card-body" style="background-color: rgba(252, 252, 252, 0.1);">
+                <p class="card-title inBoxFont h3">Charge planifiée</p>
+                <p class="card-text inBoxFont2 p" id="planifiee">X h</p>
+              </div>
+            </div>
+          </div>
+          <div class="col card2 text-center">
+            <div class="card h-100 text-bg-danger mb-3">
+              <div class="card-body">
+                <p class="card-title inBoxFont h3">Charge &nbsp;&nbsp;Réelle</p>
+                <p class="card-text inBoxFont2 p" id="reelle">Y h</p>
+              </div>
+            </div>
+          </div>
+          <div class="col card2 text-center">
+            <div class="card h-100 card text-bg-danger mb-3">
+              <div class="card-body">
+                <p class="card-title inBoxFont h3">Glissement de la charge</p>
+                <p class="card-text inBoxFont2 p" id="glissement">Y-X h</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="charge">
+    <div></div>
+    <p class="h2" id="cout">Coût du portefeuille (en Dinars (DT)):</p>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col card2 text-center">
+        <div class="card h-100 text-bg-danger mb-3">
+          <div class="card-body">
+            <p class="card-title inBoxFont h3">Cout&emsp; planifiée</p>
+            <p class="card-text inBoxFont2 p" id="cost">X DT</p>
+          </div>
+        </div>
+      </div>
+      <div class="col card2 text-center">
+        <div class="card h-100 text-bg-danger mb-3">
+          <div class="card-body">
+            <p class="card-title inBoxFont h3">Cout Réel</p>
+            <p class="card-text inBoxFont2 p" id="actualCost">Y h</p>
+          </div>
+        </div>
+      </div>
+      <div class="col card2 text-center">
+        <div class="card h-100 text-bg-danger mb-3">
+          <div class="card-body">
+            <p class="card-title inBoxFont h3">Glissement de cout</p>
+            <p class="card-text inBoxFont2 p" id="Glicost">Y-X DT</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="charge">
+    <p class="h2" id="duration">Durée du portefeuille (en jours/ou en mois (à préciser)):</p>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col card2 text-center">
+        <div class="card h-100 text-bg-danger mb-3">
+          <div class="card-body">
+            <p class="card-title inBoxFont h3">Durée planifiée</p>
+            <p class="card-text inBoxFont2 p" id="Pduration">X J</p>
+          </div>
+        </div>
+      </div>
+      <div class="col card2 text-center">
+        <div class="card h-100 text-bg-danger mb-3">
+          <div class="card-body">
+            <p class="card-title inBoxFont h3">Durée Réelle</p>
+            <p class="card-text inBoxFont2 p" id="PAduration">Y J</p>
+          </div>
+        </div>
+      </div>
+      <div class="col card2 text-center">
+        <div class="card h-100 text-bg-danger mb-3">
+          <div class="card-body">
+            <p class="card-title inBoxFont h3">Glissement de la durée</p>
+            <p class="card-text inBoxFont2 p" id="PdurationV">Y-X J</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  </div>
+  <div class="h2" id="graphTitle" style="position: relative; margin: 0 auto;;">
+    % achevé des portefeuilles
+  </div>
+  <div class="chart">
+
+    <div id='myDiv2'></div>
+  </div>
+  <div class="table1">
+    <table class="table table-warning">
+      <thead>
+        <tr>
+
+          <th id="tableFirst" scope="col">Portefeuille</th>
+          <th scope="col">% achevé </th>
+
+        </tr>
+      </thead>
+      <tbody id="table">
+
+      </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+      integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src='https://cdn.plot.ly/plotly-2.25.2.min.js'></script>
+    <script
+      src="/sites/Secteur_Bank/_catalogs/masterpage/Dashboard/attijari_test/js/cdn.jsdelivr.net_npm_chart.js"></script>
+    <script src="/sites/Secteur_Bank/_catalogs/masterpage/Dashboard/attijari_test/js/index.js"></script>
+    <script src="js/index.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"></script>
+
+</body>
+
+</html>

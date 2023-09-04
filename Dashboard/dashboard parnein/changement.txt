@@ -1,0 +1,9 @@
+glissement en jrs ---> eliminer le glissement en %
+ajouter la colonne nb tâches critiques par projets
+ajouter la colonne tâche critique au niv de tableau des tâches en retard
+champs tolerance 
+ajouter colonne commantaires por chaque tâches
+
+5% jaune
+10% rouge
+si date fin> date fin contractuel ---> alert glissement contractuel

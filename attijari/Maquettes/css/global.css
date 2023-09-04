@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Ysabeau+SC:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ysabeau+SC:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&family=Ysabeau+SC:wght@200&display=swap');
+.p{
+    font-family: 'Quicksand', sans-serif;
+    font-size: 25px;
+}
+
+.h2{
+    font-family: 'Bebas Neue', sans-serif;
+    color: rgb(204, 23, 23);
+   
+}
+.h3{
+    font-family: 'Varela Round', sans-serif;
+    font-size: 35px;
+}
+body{
+    background-color: rgba(151, 145, 137, 0.3);
+}
+.select{
+    position: relative;
+    padding-left: 30%;
+}
+
+.card1{
+    width: 20%;
+    position: relative;
+    left: 30%;
+    padding-top: 2%;
+}
+
+.card2{
+    width:14%;
+    /* position: relative;
+    left: 30%; */
+    /* padding-top: 2%; */
+    height: 10%;
+}
+.charge{
+    position: relative;
+    padding-top: 5%;
+
+    /* background-color: aliceblue;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+    /* width: 800px;  */
+/*    
+    border-radius: 10px;
+    overflow: hidden;  */
+}
+
+.inBoxFont{
+    font-size: 13px;
+}
+.inBoxFont2{
+    font-size: 15px;
+}
+.table1{
+    width: 100%;
+    position: absolute;
+    /* left: 50%;
+    top: -342px; */
+    padding-bottom: 50px;
+}
+.selecting{
+    padding-left: 20px;
+}
+
+
+.chart{
+    position: relative;
+    display: flex;
+  justify-content: center; 
+  align-items: center;
+  padding-top: 30px;
+  left:1000px;
+  top:-900px
+}
+#graphTitle{
+    padding-top: 100px;
+    position: relative;
+    top:-970px;
+    left:1500px
+}
+
+
+  #selects{
+    position: relative;
+    left:10%
+  }
+
+  .oneSelect{
+    width: 200px;
+  }
+
+  .h1{
+    font-family: 'Quicksand', sans-serif;
+    color: azure;
+  }
+
+  /* .cards{
+    width: 800px; 
+   
+    border-radius: 10px;
+    overflow: hidden; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: rgb(255, 255, 255);
+    
+} */
+
+
+/* .position{
+    position: relative;
+    left: 20%;
+} */
+
+/* Style for the card container */
+/* Style for the card container */
+.charge .card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Hover effect for the cards */
+.charge .card:hover {
+    transform: scale(1.05);
+}
+
+/* Style for the card titles */
+.charge .card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Style for the card content */
+.charge .card p {
+    font-size: 1.2rem;
+}Charge Réelle
+
+
+
+/* Customize card background color and text color */
+.charge .card-text {
+    background-color: #F2F2F2;
+    color: #333;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Style for the "Glissement de" text */
+.charge .card-title {
+    font-size: 1.1rem;
+}
+
+/* Set a maximum width for the cards to keep them square */
+.charge .card {
+    max-width: 200px; /* You can adjust this value as needed */
+    height: 200px; /* To ensure a square shape */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Center text vertically in the card body */
+.charge .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+

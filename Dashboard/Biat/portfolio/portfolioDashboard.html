@@ -1,0 +1,322 @@
+<div id="overlay">
+    <div class="spinner"></div>
+    <br />
+    Please Wait A Moment...
+</div>
+<div id="headercolor">
+        <div>
+            <small class="smallRisks">
+                PORTEFEUILLE DES PROJETS
+            </small>
+        </div>
+        <div>
+            
+            <select class="mdb-select md-form" style="color:black; font-weight:bold;" id="mylist0"
+                onchange="remplirPortefeuilleSelect();filtrePortefeuille();" >
+                <option value="">EXERCICE</option>
+            </select>
+            <select class="mdb-select md-form" disabled style="color:black; font-weight:bold;" id="mylist2"
+                onchange="filtrePortefeuille();loadSelectProgramme()">
+                <option value="">PORTEFEUILLE PROJET</option>
+            </select>
+
+             <select class="mdb-select md-form" style="color:black; font-weight:bold;" id="mylist1"
+                onchange="filtreProgramme();loadSelectProprietaireProjet()" disabled>
+                <option value="">PROGRAMME</option>
+            </select>
+
+            
+
+        </div>
+    </div>
+    <div class="row">
+    	<div class="col-lg-3 col-xs-12" >
+    		<div class="card mb-3" style="max-width: 100%; box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.5); min-height:80px; border-radius: 5px; background-color: #c9dcc9;">
+		        <div class="card-header">
+		            <div class="col-sm-3" style="padding-top: 10px">
+		                <span class="card-widget__icon">
+		                <img src='/sites/BIAT/_catalogs/masterpage/Dashboard/portFolioDashboard/img/e-learning.png'
+		                        class='img-rounded' alt='Cinque Terre' width='45px' height='45px'></span>
+		            </div>
+		            <div class="col">
+		                <h6 class="card-title" style="color: black;text-align: center;padding-top: 10px">Nombre de portefeuilles</h6>
+		            </div>
+		            <div class="card-body">
+		                <p class="card-text" id="portefeuillecount" style="font-size: x-large; text-align: center;color: black;"></p>
+		            </div>
+		        </div>
+		    </div>
+
+		    <div class="card mb-3" style="max-width: 100%; box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.5); min-height:80px; border-radius: 5px; background-color: #c9dcc9;">
+		        <div class="card-header">
+		            <div class="col-sm-3" style="padding-top: 10px">
+		                <span class="card-widget__icon">
+		                <img src='/sites/BIAT/_catalogs/masterpage/Dashboard/portFolioDashboard/img/e-learning.png'
+		                        class='img-rounded' alt='Cinque Terre' width='45px' height='45px'></span>
+		            </div>
+		            <div class="col">
+		                <h6 class="card-title" style="color: black;text-align: center;padding-top: 10px">Nombre de programmes</h6>
+		            </div>
+		            <div class="card-body">
+		                <p class="card-text" id="pgcount" style="font-size: x-large; text-align: center;color: black;"></p>
+		            </div>
+		        </div>
+		    </div>
+
+		    <div class="card mb-3" style="max-width: 100%; box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.5); min-height:80px; border-radius: 5px; background-color: #c9dcc9;">
+		        <div class="card-header">
+		            <div class="col-sm-3" style="padding-top: 10px">
+		                <span class="card-widget__icon">
+		                <img src='/sites/BIAT/_catalogs/masterpage/Dashboard/portFolioDashboard/img/e-learning.png'
+		                        class='img-rounded' alt='Cinque Terre' width='45px' height='45px'></span>
+		            </div>
+		            <div class="col">
+		                <h6 class="card-title" style="color: black;text-align: center;padding-top: 10px">Nombre de projets</h6>
+		            </div>
+		            <div class="card-body">
+		                <p class="card-text" id="prcount" style="font-size: x-large; text-align: center;color: black;"></p>
+		            </div>
+		        </div>
+		    </div>
+
+		    <div class="card mb-3" style="max-width: 100%; box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.5); min-height:80px; border-radius: 5px; background-color: #fafffa;">
+		        <div class="card-header">
+		            <div class="col-sm-3" style="padding-top: 10px">
+		                <span class="card-widget__icon"><img
+		                        src='/sites/BIAT/_catalogs/masterpage/Dashboard/portFolioDashboard/img/calculator.png'
+		                        class='img-rounded' alt='Cinque Terre' width='45px' height='45px'></span>
+		            </div>
+		            <div class="col">
+		                <h6 class="card-title" style="color: black;text-align: center;padding-top: 10px">Coût</h6>
+		            </div>
+		            <div class="card-body">
+		                <p class="card-text" id="prcost" style="font-size: x-large; text-align: center;color: black;"></p>
+		            </div>
+		        </div>
+		    </div>
+
+		    <div class="card mb-3" style="max-width: 100%; box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.5); min-height:80px; border-radius: 5px; background-color: #fafffa;">
+                <div class="card-header">
+                    <div class="col-sm-3" style="padding-top: 10px">
+                        <span class="card-widget__icon"><img
+                                src='/sites/BIAT/_catalogs/masterpage/Dashboard/portFolioDashboard/img/calculator.png'
+                                class='img-rounded' alt='Cinque Terre' width='45px' height='45px'></span>
+                    </div>
+                    <div class="col">
+                        <h6 class="card-title" style="color: black;text-align: center;padding-top: 10px">Coût consommée</h6>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text" id="sommeCoutReel" style="font-size: x-large; text-align: center;color: black;"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-3" style="max-width: 100%; box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.5); min-height:80px; border-radius: 5px; background-color: #fafffa;">
+                <div class="card-header">
+                    <div class="col-sm-3" style="padding-top: 10px">
+                        <span class="card-widget__icon"><img
+                                src='/sites/BIAT/_catalogs/masterpage/Dashboard/portFolioDashboard/img/calculator.png'
+                                class='img-rounded' alt='Cinque Terre' width='45px' height='45px'></span>
+                    </div>
+                    <div class="col">
+                        <h6 class="card-title" style="color: black;text-align: center;padding-top: 10px">Coût restant</h6>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text" id="couRestantPortefeuilleProProj" style="font-size: x-large; text-align: center;color: black;"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-3" style="max-width: 100%; box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.5); min-height:80px; border-radius: 5px; background-color: #fafffa;">
+                <div class="card-header">
+                    <div class="col-sm-3" style="padding-top: 10px">
+                        <span class="card-widget__icon"><img
+                                src='/sites/BIAT/_catalogs/masterpage/Dashboard/portFolioDashboard/img/budget.png'
+                                class='img-rounded' alt='Cinque Terre' width='45px' height='45px'></span>
+                    </div>
+                    <div class="col">
+                        <h6 class="card-title" style="color: black;text-align: center;padding-top: 10px">Variance de coût</h6>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text" id="cvariance" style="font-size: x-large; text-align: center;color: black;">
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-3" style="max-width: 100%; box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.5); min-height:80px; border-radius: 5px; background-color: #fafffa;">
+                <div class="card-header">
+                    <div class="col-sm-3" style="padding-top: 10px">
+                        <span class="card-widget__icon"><img
+                                src='/sites/BIAT/_catalogs/masterpage/Dashboard/portFolioDashboard/img/work.png'
+                                class='img-rounded' alt='Cinque Terre' width='45px' height='45px'></span>
+                    </div>
+                    <div class="col">
+                        <h6 class="card-title" style="color: black;text-align: center;padding-top: 10px">Travail</h6>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text" id="prwork" style="font-size: x-large; text-align: center;color: black;"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-3" style="max-width: 100%; box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.5); min-height:80px; border-radius: 5px; background-color: #fafffa;">
+                <div class="card-header">
+                    <div class="col-sm-3" style="padding-top: 10px">
+                        <span class="card-widget__icon"><img
+                                src='/sites/BIAT/_catalogs/masterpage/Dashboard/portFolioDashboard/img/watch.png'
+                                class='img-rounded' alt='Cinque Terre' width='45px' height='45px'></span>
+                    </div>
+                    <div class="col">
+                        <h6 class="card-title" style="color: black;text-align: center;padding-top: 10px">Variance de travail</h6>
+                    </div>
+                    <div class="card-body">
+
+                        <p class="card-text" id="wrvariance" style="font-size: x-large; text-align: center;color: black;"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-3" style="max-width: 100%;  box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.5); min-height:80px; border-radius: 5px; background-color: #fafffa;">
+                <div class="card-header">
+                    <div class="col-sm-3" style="padding-top: 10px">
+                        <span class="card-widget__icon"><img
+                                src='/sites/BIAT/_catalogs/masterpage/Dashboard/portFolioDashboard/img/risk.png'
+                                class='img-rounded' alt='Cinque Terre' width='45px' height='45px'></span>
+                    </div>
+                    <div class="col">
+                        <h6 class="card-title" style="color: black;text-align: center;padding-top: 10px">Risques</h6>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text" id="actRisk" style="font-size: x-large; text-align: center;color: black;"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-3" style="max-width: 100%; box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.5); min-height:80px; border-radius: 5px; background-color: #fafffa;">
+                <div class="card-header">
+                    <div class="col-sm-3" style="padding-top: 10px">
+                        <span class="card-widget__icon"><img
+                                src='/sites/BIAT/_catalogs/masterpage/Dashboard/portFolioDashboard/img/project.png' class='img-rounded'
+                                alt='Cinque Terre' width='45px' height='45px'></span>
+                    </div>
+                    <div class="col">
+                        <h6 class="card-title" style="color: black;text-align: center;padding-top: 10px">Problèmes</h6>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text" id="actIssue" style="font-size: x-large; text-align: center;color: black;"></p>
+                    </div>
+
+                </div>
+            </div>
+
+    	</div>
+    	<div class="col-lg-9 col-xs-12">
+    		<div class="col-sm-12">
+                  <div class="x_panel" id="xpanelmodified"
+                      style="width:100%; box-shadow: 0px 4px 8px 0px rgb(0 0 0 / 50%);border-radius: 5px;">
+                      <div class="x_title">
+                       <h4 style="color: black;margin: 0px;"><b>PROGRAMME</b></h4>
+                          <div class="clearfix"></div>
+                      </div>
+                      <div id="projchartDiv">
+                       <canvas id="projchart" style="max-height: 550px;display: block;width: 1379px;"></canvas>
+                      </div>
+                  </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="x_panel" style="width:100%; box-shadow: 0px 4px 8px 0px rgb(0 0 0 / 50%);border-radius: 5px;">
+                        <div class="x_title">
+                            <h4 id="PortefeuilleAff" style="color: black;margin: 0px;"><b>NOMBRE DES PROJETS PAR PORTEFEUILLE</b></h4>
+                            <h4 id="ProgrammeAff" style="color: black;margin: 0px;"><b>NOMBRE DE PROJET PAR PROGRAMME</b></h4>
+                            <h4 id="StatutAff" style="color: black;margin: 0px;"><b>NOMBRE DE PROJET PAR STATUT</b></h4>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <div>
+                             <div id="barslineDiv">
+                                <canvas id="barsline"></canvas>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+             </div>
+
+             <div class="col-md-6 col-sm-3 col-xs-12">
+                    <div class="x_panel" style="width:100%; box-shadow: 0px 4px 8px 0px rgb(0 0 0 / 50%);border-radius: 5px;">
+                        <div class="x_title">
+                            <h4  style="color: black;margin: 0px;"><b>TYPES DES PROJETS DU PORTEFEUILLE</b></h4>
+                            
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <div>
+                            <div id="sous_portefeuilleDiv">
+                                <canvas id="sous_portefeuille"></canvas>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="col-xs-12">
+                    <h4 id="ertabtit" style="color: black"><b>Détails des projets</b></h4>
+                    <div class="form-group" style="    float: right;">
+                                        <!--        Show Numbers Of Rows        -->
+                                        <select class="form-control" name="state" id="maxRows">
+                                            <option value="5000">Afficher toutes les lignes</option>
+                                            <option value="5">5</option>
+                                            <option value="10">10</option>
+                                            <option value="15">15</option>
+                                            <option value="20">20</option>
+                                            <option value="50">50</option>
+                                            <option value="70">70</option>
+                                            <option value="100">100</option>
+                                        </select>
+                                    </div>
+                    <table class="table table-striped  jambo_table bulk_action no-footer-border" id="tableaux">
+                        <thead>
+                            <tr>
+                                                <th style="border-radius:10px 0px 0px 0px; width: 25%;">NOM DE PROJET</th>
+                                                <th></th>
+                                                <th style="width: 15%;">PROGRAMME</th>
+                                                <th style="width: 15%;">TYPE DE PROJET</th>
+                                                <th style="width: 15%;">PROPRIÉTAIRE DU PROJET</th>
+                                                <th style="width: 10%;">DATE DE DÉBUT</th>
+                                                <th style="width: 10%;">DATE FIN</th>
+                                                <th>COÛT</th>
+                                                <th>Coût consommé</th>
+                                                <th>Coût restant</th>
+                                              <!--  <th style="width: 5%;">COÛT SANTÉ</th>
+                                                <th style="width: 6%;">TRAVAIL SANTÉ</th>
+                                                <th style="width: 5%;">SANTÉ DE CALENDRIER</th>
+                                                <th style="width: 7%;">SANTÉ DE PROJET</th> -->
+                                                <th style="border-radius:0px 10px 0px 0px; width:10%;">% ACHEVÉ</th>
+                                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                        <div class='pagination-container'>
+                        <nav>
+                            <ul class="pagination">
+
+                                <li data-page="prev">
+                                    <span>
+                                        <a href="#" class="previous round" style="color:white;">&#8249;</a> <span
+                                            class="sr-only" style="color:white;">(current)
+                                        </span></span>
+                                </li>
+                                <!-- Here the JS Function Will Add the Rows -->
+                                <li data-page="next" id="prev">
+                                    <span> <a href="#" class="next round" style="color:white;">&#8250;</a> <span class="sr-only"
+                                            style="color:white;">(current)</span></span>
+                                </li>
+                            </ul>
+                        </nav>
+                        </div>
+                </div>
+
+
+    	</div>
+    </div>

@@ -1,0 +1,67 @@
+Add-Type -Path "C:\Program Files\Common Files\Microsoft Shared\Web Server Extensions\16\ISAPI\Microsoft.SharePoint.Client.dll"
+Add-Type -Path "C:\Program Files\Common Files\Microsoft Shared\Web Server Extensions\16\ISAPI\Microsoft.SharePoint.Client.Runtime.dll"
+
+Function Copy-ListItems()
+{
+param
+(
+[Parameter(Mandatory=$true)] [string] $SiteURL,
+[Parameter(Mandatory=$true)] [string] $SourceListName,
+[Parameter(Mandatory=$true)] [string] $TargetListName
+)
+Try {
+#Setup Credentials to connect
+#$Cred = Get-Credential
+#$Cred = New-Object System.Net.NetworkCredential($Cred.UserName,$Cred.Password)
+$Cred = New-Object System.Net.NetworkCredential("TS\sp_admin","TenStep2018/*-+")
+
+#Setup the context
+$Ctx = New-Object Microsoft.SharePoint.Client.ClientContext($SiteURL)
+$Ctx.Credentials = $Cred
+
+#Get the Source List and Target Lists
+$SourceList = $Ctx.Web.Lists.GetByTitle($SourceListName)
+$TargetList = $Ctx.Web.Lists.GetByTitle($TargetListName)
+
+#Get All Items from Source List
+$SourceListItems = $SourceList.GetItems([Microsoft.SharePoint.Client.CamlQuery]::CreateAllItemsQuery())
+$Ctx.Load($SourceListItems)
+$Ctx.ExecuteQuery()
+
+#Get each column value from source list and add them to target
+$count = 0
+ForEach($SourceItem in $SourceListItems)
+{
+	$count = $count + 1
+	if(($count -ge 1) -and ($count -lt 1000) ){
+		$NewItem =New-Object Microsoft.SharePoint.Client.ListItemCreationInformation
+		$ListItem = $TargetList.AddItem($NewItem)
+
+		#Map each field from source list to target list - INTERNAL NAMES
+		$ListItem["Title"] = $SourceItem["Title"]
+		$ListItem["Responsable"] = $SourceItem["Responsable"]
+		$ListItem["IDS"] = $SourceItem["ID"]
+
+
+		$ListItem.update()
+	}
+	
+}
+
+
+$Ctx.ExecuteQuery()
+
+write-host -f Green "Total List Items Copied from '$SourceListName' to '$TargetListName' : $($SourceListItems.count)"
+}
+Catch {
+write-host -f Red "Error Copying List Items!" $_.Exception.Message
+}
+}
+
+#Set Parameters
+$WebURL = "http://tenstep-ppm/sites/PWA"
+$SourceListName = "PassSanitaire"
+$TargetListName= "PassSanitaire 2"
+
+#Call the function to copy list items
+Copy-ListItems -siteURL $WebURL -SourceListName $SourceListName -TargetListName $TargetListName

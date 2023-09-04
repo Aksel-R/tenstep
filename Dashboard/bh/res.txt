@@ -1,0 +1,226 @@
+var responseUsers=responseUsers || [];
+        var urlUsers= _spPageContextInfo.siteAbsoluteUrl + "/_api/Web/SiteUsers?$select=Id,Title";
+        function loadUsers(){
+          $.ajax({
+                        url: urlUsers,
+                        method: "GET",
+                        dataType: "json",
+                        headers: { Accept: "application/json;odata=verbose" },
+                        success: function (data) {
+                            responseUsers = responseUsers.concat(data.d.results);
+                            if (data.d.__next) {
+                                urlUsers = data.d.__next;
+                                loadUsers();
+                            }
+                            
+                            
+                            var arrIdRes=[];
+                            var arrNameRes=[];
+                            $.each(responseUsers, function (key, value) {
+                               
+                               var idRes=value.Id;
+                               var nomRes=value.Title;
+                               arrIdRes.push(idRes);
+                               arrNameRes.push(nomRes);
+                            });
+                            loadDossPhaseEtudeCom(arrIdRes,arrNameRes);
+                            
+                            
+                        }
+                    });
+        }
+        loadUsers();
+
+
+                var responseDossPhaseEtudeCom=responseDossPhaseEtudeCom || [];
+        var urlDossPhaseEtudeCom= _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('DossCrdEnt')/items?select=Charg_x00e9__x0020_d_x0027_AffaiId,Statut,March_x00e9_&$filter=March_x00e9_%20eq%27GRP: Groupes%27";
+        function loadDossPhaseEtudeCom(arrIdRes,arrNameRes){
+          $.ajax({
+                        url: urlDossPhaseEtudeCom,
+                        method: "GET",
+                        dataType: "json",
+                        headers: { Accept: "application/json;odata=verbose" },
+                        success: function (data) {
+                            responseDossPhaseEtudeCom = responseDossPhaseEtudeCom.concat(data.d.results);
+                            if (data.d.__next) {
+                                urlDossPhaseEtudeCom = data.d.__next;
+                                loadDossPhaseEtudeCom(arrIdRes,arrNameRes);
+                            }
+                            var arrRess=[];
+                            var marche="";
+                            var arrCountStatCommercial=[];
+                            var arrCountStatCredit=[];
+                            var arrCountStatRejet=[];
+                            var arrCountStatFormalitésGaranties=[];
+                            var arrCountStatMisePlace=[];
+                            var arrCountStatDossierDenoue=[];
+                            console.log("arrIdRes= "+arrIdRes);
+                            $.each(responseDossPhaseEtudeCom, function (key, value) {
+                              marche=value.March_x00e9_;
+                              var idRes=value.Charg_x00e9__x0020_d_x0027_AffaiId;
+                              //console.log("idRes= "+idRes);
+                              var nomRessource=arrNameRes[arrIdRes.indexOf(idRes)];
+                              //console.log("nomRessource= "+nomRessource);
+                              if (nomRessource !==undefined) {
+                                      var statut = value.Statut;
+                                    if (arrRess.indexOf(nomRessource)<0) {
+                                      arrRess.push(nomRessource);
+                                      if ((statut=="Etude Commerciale")||(statut=="Dossier Remplacé")) {
+                                      statut="Commercial";
+                                      arrCountStatCommercial.push(1);
+                                      arrCountStatCredit.push(0);
+                                      arrCountStatRejet.push(0);
+                                      arrCountStatFormalitésGaranties.push(0);
+                                      arrCountStatMisePlace.push(0);
+                                      arrCountStatDossierDenoue.push(0);
+                                     }
+                                     if ((statut=="Review")||(statut=="Instance Validation Comité de Crédit")||(statut=="Décision Comité de Crédit")||(statut=="Instance Validation Comité Exécutif")||(statut=="Décision Comité Exécutif")||(statut=="Dossier à Représenter Suite à la Décision du Comité")) {
+                                      statut="Crédit";
+                                      arrCountStatCommercial.push(0);
+                                      arrCountStatCredit.push(1);
+                                      arrCountStatRejet.push(0);
+                                      arrCountStatFormalitésGaranties.push(0);
+                                      arrCountStatMisePlace.push(0);
+                                      arrCountStatDossierDenoue.push(0);
+                                     }
+                                     if ((statut=="Dossier Refusé par le Comité")||(statut=="F.G : Dossier à Problèmes")||(statut=="Abandon Client")) {
+                                      statut="Rejet";
+                                      arrCountStatCommercial.push(0);
+                                      arrCountStatCredit.push(0);
+                                      arrCountStatRejet.push(1);
+                                      arrCountStatFormalitésGaranties.push(0);
+                                      arrCountStatMisePlace.push(0);
+                                      arrCountStatDossierDenoue.push(0);
+                                     }
+                                     if ((statut=="Formalités de Garanties")||(statut=="Formalités de Garanties Accomplies")) {
+                                      statut="Formalités de Garanties";
+                                      arrCountStatCommercial.push(0);
+                                      arrCountStatCredit.push(0);
+                                      arrCountStatRejet.push(0);
+                                      arrCountStatFormalitésGaranties.push(1);
+                                      arrCountStatMisePlace.push(0);
+                                      arrCountStatDossierDenoue.push(0);
+                                     }
+                                     if (statut=="Mise en Place") {
+                                      statut="Mise en Place";
+                                      arrCountStatCommercial.push(0);
+                                      arrCountStatCredit.push(0);
+                                      arrCountStatRejet.push(0);
+                                      arrCountStatFormalitésGaranties.push(0);
+                                      arrCountStatMisePlace.push(1);
+                                      arrCountStatDossierDenoue.push(0);
+                                     }
+                                     if (statut=="Dossier Dénoué") {
+                                      statut="Dossier Dénoué";
+                                      arrCountStatCommercial.push(0);
+                                      arrCountStatCredit.push(0);
+                                      arrCountStatRejet.push(0);
+                                      arrCountStatFormalitésGaranties.push(0);
+                                      arrCountStatMisePlace.push(0);
+                                      arrCountStatDossierDenoue.push(1);
+                                     }
+                                    }
+                                    else{
+                                        if ((statut=="Etude Commerciale")||(statut=="Dossier Remplacé")) {
+                                        statut="Commercial";
+                                        arrCountStatCommercial[arrRess.indexOf(nomRessource)]+=1;
+                                       }
+                                       if ((statut=="Review")||(statut=="Instance Validation Comité de Crédit")||(statut=="Décision Comité de Crédit")||(statut=="Instance Validation Comité Exécutif")||(statut=="Décision Comité Exécutif")||(statut=="Dossier à Représenter Suite à la Décision du Comité")) {
+                                        statut="Crédit";
+                                        arrCountStatCredit[arrRess.indexOf(nomRessource)]+=1;
+                                       }
+                                       if ((statut=="Dossier Refusé par le Comité")||(statut=="F.G : Dossier à Problèmes")||(statut=="Abandon Client")) {
+                                        statut="Rejet";
+                                        arrCountStatRejet[arrRess.indexOf(nomRessource)]+=1;
+                                       }
+                                       if ((statut=="Formalités de Garanties")||(statut=="Formalités de Garanties Accomplies")) {
+                                        statut="Formalités de Garanties";
+                                        arrCountStatFormalitésGaranties[arrRess.indexOf(nomRessource)]+=1;
+                                       }
+                                       if (statut=="Mise en Place") {
+                                        statut="Mise en Place";
+                                        arrCountStatMisePlace[arrRess.indexOf(nomRessource)]+=1;
+                                       }
+                                       if (statut=="Dossier Dénoué") {
+                                        statut="Dossier Dénoué";
+                                        arrCountStatDossierDenoue[arrRess.indexOf(nomRessource)]+=1;
+                                       }
+                                
+                                    }
+                                    
+                              }
+                              
+
+                              
+                            });
+           
+
+      Highcharts.chart('container31', {
+    chart: {
+        type: 'bar'
+      },
+      title: {
+          text: marche
+      },
+      xAxis: {
+          categories: arrRess
+      },
+      yAxis: {
+          min: 0,
+          title: {
+              text: "Total Dossiers en Phase Etude Commerciale par Chargé d'affaire"
+          }
+      },
+      legend: {
+          reversed: true
+      },
+      plotOptions: {
+          series: {
+              stacking: 'normal',
+               dataLabels: {
+                enabled: true,
+                format: '{point.y} ',
+                distance: -40,
+
+            }
+          }
+      },
+      series: [{
+                name: 'Dossier Dénoué',
+                data: arrCountStatDossierDenoue,
+                color: "#E78807"
+            },
+            {
+                name: 'Mise en Place',
+                data: arrCountStatMisePlace,
+                color: "#196CF3"
+            },
+            {
+                name: 'Formalités de Garanties',
+                data: arrCountStatFormalitésGaranties,
+                color: "#F3B419"
+            },
+            {
+                name: 'Rejet',
+                data: arrCountStatRejet,
+                color: "#B2B2B2"
+            },
+            {
+                name: 'Credit',
+                data: arrCountStatCredit,
+                color: "#2A9C06"
+            },
+            {
+                name: 'Commercial',
+                data: arrCountStatCommercial,
+                color: "#3F7EDF"
+            }],
+
+  });
+                            
+                            
+                        }
+                    });
+        }
+        
+
