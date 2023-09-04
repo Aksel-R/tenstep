@@ -4,32 +4,390 @@
 
     $(document).ready(function () {
 
-        $('#Motifs_x0020_Non_x002d_Conformit30_5d1c895a-8ba7-4d96-8327-2a0ce9796771_MultiChoiceOption_0').prop("disabled", true);
-        $('#Motifs_x0020_Non_x002d_Conformit30_5d1c895a-8ba7-4d96-8327-2a0ce9796771_MultiChoiceOption_1').prop("disabled", true);
-        $('#Motifs_x0020_Non_x002d_Conformit30_5d1c895a-8ba7-4d96-8327-2a0ce9796771_MultiChoiceOption_2').prop("disabled", true);
 
-        var userid = _spPageContextInfo.userId;
-        var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Agence')/items";
-        var agenciesData = []
 
 
         $("#Title").hide();
 
+        $('[id="Description_x0020_avis_x0020_DCP_bb43bebd-ae74-454f-8529-a8466234657a_$TextField_topDiv"]').hide(); 
+
+        $('[id="Avis_x0020_DCPR"]').hide(); //avis dcpr text
+        $('[id="Avis_x0020_DCPR_b8be0846-57d4-40f4-9e68-276df8e5072a_ChoiceRadioTable"]').hide(); //avis dcpr multiple choices
+        $('[id="Description_x0020_avis_x0020_DCP"]').hide();//Description avis DCPR text
+        $('[id="Description_x0020_avis_x0020_DCP_bb43bebd-ae74-454f-8529-a8466234657a_$TextField_inplacerte"]').hide();//Description avis DCPR textAria
+
+        $('[id="Statut_x0020_R_x00e9_gional"]').hide();//Statut Régional text
+        $('[id="Statut_x0020_R_x00e9_gional_324d0e4e-a50c-4b3f-824c-83a7df6df89c_ChoiceRadioTable"]').hide();//Statut Régional multiple choices
+
         $('[id="Title_fa564e0f-0c70-4ab9-b863-0177e6ddd247_$TextField"]').hide();
         $('[id="Avis_x0020_DCPR_b8be0846-57d4-40f4-9e68-276df8e5072a_$DropDownChoice"]').hide();
-        $('[id="Avis_x0020_DCPR"]').hide();
+     
         $('[id="Supprimer_x0020_le_x0020_dossier"]').hide();
         $('[id="Supprimer_x0020_le_x0020_dossier_a2cf7d88-b0b8-4929-aac6-8d2bc5e36c13_$DropDownChoice"]').hide();
-        $('[id="Statut_x0020_R_x00e9_gional"]').hide();
+       
         $('[id="Statut_x0020_R_x00e9_gional_324d0e4e-a50c-4b3f-824c-83a7df6df89c_$DropDownChoice"]').hide();
-        $('[id="Avis_x0020_DCPR_b8be0846-57d4-40f4-9e68-276df8e5072a_ChoiceRadioTable"]').hide();
-        $('[id="Statut_x0020_R_x00e9_gional_324d0e4e-a50c-4b3f-824c-83a7df6df89c_ChoiceRadioTable"]').hide();
+    
+       
         $('[id="Agence_e0ec49f5-d040-4c6c-a66f-4cde11fb67ab_$LookupField"]').empty();
 
         $('[id="Agence_e0ec49f5-d040-4c6c-a66f-4cde11fb67ab_$LookupField"]').append($('<option>', {
             text: "choix d'agence",
             value: "00"
         }))
+
+
+
+
+        //A1 initialization
+
+        $('#Motifs_x0020_Non_x002d_Conformit30_5d1c895a-8ba7-4d96-8327-2a0ce9796771_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit30_5d1c895a-8ba7-4d96-8327-2a0ce9796771_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit30_5d1c895a-8ba7-4d96-8327-2a0ce9796771_MultiChoiceOption_2').prop("disabled", true);
+
+        //A2 init
+
+        $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_2').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_3').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_4').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_5').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_6').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_7').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_8').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_9').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_10').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_11').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_12').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_13').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_14').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_15').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_16').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_17').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_18').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_19').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_20').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_21').prop("checked", true);
+        $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_21').prop("disabled", false);
+
+        //A3 init 
+        $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_2').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_3').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_4').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_5').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_6').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_7').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_8').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_9').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_10').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_11').prop("checked", true);
+        $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_11').prop("disabled", false);
+
+
+        //A4 init
+        $('#Motifs_x0020_Non_x002d_Conformit27_8bb4dab0-1456-46dc-8356-bec471b4eabe_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit27_8bb4dab0-1456-46dc-8356-bec471b4eabe_MultiChoiceOption_1').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit27_8bb4dab0-1456-46dc-8356-bec471b4eabe_MultiChoiceOption_1').prop("checked", true);
+
+        //A5 init
+        $('#Motifs_x0020_Non_x002d_Conformit26_994f395d-081d-40b7-a35a-933c7f78f57c_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit26_994f395d-081d-40b7-a35a-933c7f78f57c_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit26_994f395d-081d-40b7-a35a-933c7f78f57c_MultiChoiceOption_2').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit26_994f395d-081d-40b7-a35a-933c7f78f57c_MultiChoiceOption_3').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit26_994f395d-081d-40b7-a35a-933c7f78f57c_MultiChoiceOption_4').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit26_994f395d-081d-40b7-a35a-933c7f78f57c_MultiChoiceOption_5').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit26_994f395d-081d-40b7-a35a-933c7f78f57c_MultiChoiceOption_6').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit26_994f395d-081d-40b7-a35a-933c7f78f57c_MultiChoiceOption_6').prop("checked", true);
+
+
+        //A6 init
+        $('#Motifs_x0020_Non_x002d_Conformit25_1ac6f5de-3466-40f8-b488-9297b5041126_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit25_1ac6f5de-3466-40f8-b488-9297b5041126_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit25_1ac6f5de-3466-40f8-b488-9297b5041126_MultiChoiceOption_2').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit25_1ac6f5de-3466-40f8-b488-9297b5041126_MultiChoiceOption_2').prop("checked", true);
+
+
+        //A7 init 
+        $('#Motifs_x0020_Non_x002d_Conformit24_93cb05bc-609a-4242-b84e-44e5e4284aa2_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit24_93cb05bc-609a-4242-b84e-44e5e4284aa2_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit24_93cb05bc-609a-4242-b84e-44e5e4284aa2_MultiChoiceOption_2').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit24_93cb05bc-609a-4242-b84e-44e5e4284aa2_MultiChoiceOption_3').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit24_93cb05bc-609a-4242-b84e-44e5e4284aa2_MultiChoiceOption_3').prop("checked", true);
+
+
+        //A8 init
+        $('#Motifs_x0020_Non_x002d_Conformit23_87be9a77-5ba7-4ec9-bf7a-00244ff5992b_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit23_87be9a77-5ba7-4ec9-bf7a-00244ff5992b_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit23_87be9a77-5ba7-4ec9-bf7a-00244ff5992b_MultiChoiceOption_2').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit23_87be9a77-5ba7-4ec9-bf7a-00244ff5992b_MultiChoiceOption_2').prop("checked", true);
+        //B\\
+
+        //B1 init
+
+        $('#Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_2').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_3').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_4').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_5').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_6').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_6').prop("checked", true);
+        $('#Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_0').prop("checked", false);
+
+        //B2 init 
+
+        $('#Motifs_x0020_Non_x002d_Conformit21_d371661c-7f08-41b0-ac32-0761e83f30b1_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit21_d371661c-7f08-41b0-ac32-0761e83f30b1_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit21_d371661c-7f08-41b0-ac32-0761e83f30b1_MultiChoiceOption_2').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit21_d371661c-7f08-41b0-ac32-0761e83f30b1_MultiChoiceOption_3').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit21_d371661c-7f08-41b0-ac32-0761e83f30b1_MultiChoiceOption_4').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit21_d371661c-7f08-41b0-ac32-0761e83f30b1_MultiChoiceOption_4').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit21_d371661c-7f08-41b0-ac32-0761e83f30b1_MultiChoiceOption_4').prop("checked", true);
+
+        //B3 init 
+
+        $('#Motifs_x0020_Non_x002d_Conformit20_8ba200dd-4ab1-4c6f-b2b4-742b2e39a95b_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit20_8ba200dd-4ab1-4c6f-b2b4-742b2e39a95b_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit20_8ba200dd-4ab1-4c6f-b2b4-742b2e39a95b_MultiChoiceOption_2').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit20_8ba200dd-4ab1-4c6f-b2b4-742b2e39a95b_MultiChoiceOption_3').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit20_8ba200dd-4ab1-4c6f-b2b4-742b2e39a95b_MultiChoiceOption_4').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit20_8ba200dd-4ab1-4c6f-b2b4-742b2e39a95b_MultiChoiceOption_4').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit20_8ba200dd-4ab1-4c6f-b2b4-742b2e39a95b_MultiChoiceOption_4').prop("checked", true);
+
+        //B4 init 
+
+        $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_2').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_4').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_5').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_6').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_7').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_3').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_8').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_8').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_8').prop("checked", true);
+
+        //B5 init 
+
+        $('#Motifs_x0020_Non_x002d_Conformit18_cbc63217-4821-4f6a-a65f-7f4687f613fb_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit18_cbc63217-4821-4f6a-a65f-7f4687f613fb_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit18_cbc63217-4821-4f6a-a65f-7f4687f613fb_MultiChoiceOption_2').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit18_cbc63217-4821-4f6a-a65f-7f4687f613fb_MultiChoiceOption_3').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit18_cbc63217-4821-4f6a-a65f-7f4687f613fb_MultiChoiceOption_3').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit18_cbc63217-4821-4f6a-a65f-7f4687f613fb_MultiChoiceOption_3').prop("checked", true);
+
+        //B6 init
+
+        $('#Motifs_x0020_Non_x002d_Conformit17_b416626f-115b-4193-9910-22c9762e55d0_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit17_b416626f-115b-4193-9910-22c9762e55d0_MultiChoiceOption_1').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit17_b416626f-115b-4193-9910-22c9762e55d0_MultiChoiceOption_1').prop("checked", true);
+
+        //C1 init 
+
+        $('#Motifs_x0020_Non_x002d_Conformit16_190ef556-2016-4481-993b-e19893a1b63b_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit16_190ef556-2016-4481-993b-e19893a1b63b_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit16_190ef556-2016-4481-993b-e19893a1b63b_MultiChoiceOption_2').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit16_190ef556-2016-4481-993b-e19893a1b63b_MultiChoiceOption_3').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit16_190ef556-2016-4481-993b-e19893a1b63b_MultiChoiceOption_4').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit16_190ef556-2016-4481-993b-e19893a1b63b_MultiChoiceOption_4').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit16_190ef556-2016-4481-993b-e19893a1b63b_MultiChoiceOption_4').prop("checked", true);
+
+        //C2 init 
+
+        $('#Motifs_x0020_Non_x002d_Conformit12_817c7ea2-12f9-40bd-8667-34088743b8d5_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit12_817c7ea2-12f9-40bd-8667-34088743b8d5_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit12_817c7ea2-12f9-40bd-8667-34088743b8d5_MultiChoiceOption_2').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit12_817c7ea2-12f9-40bd-8667-34088743b8d5_MultiChoiceOption_3').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit12_817c7ea2-12f9-40bd-8667-34088743b8d5_MultiChoiceOption_4').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit12_817c7ea2-12f9-40bd-8667-34088743b8d5_MultiChoiceOption_4').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit12_817c7ea2-12f9-40bd-8667-34088743b8d5_MultiChoiceOption_4').prop("checked", true);
+
+        //C3 init
+
+        $('#Motifs_x0020_Non_x002d_Conformit11_41c9b4c8-c23f-4acb-b55d-990ed2edc860_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit11_41c9b4c8-c23f-4acb-b55d-990ed2edc860_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit11_41c9b4c8-c23f-4acb-b55d-990ed2edc860_MultiChoiceOption_2').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit11_41c9b4c8-c23f-4acb-b55d-990ed2edc860_MultiChoiceOption_3').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit11_41c9b4c8-c23f-4acb-b55d-990ed2edc860_MultiChoiceOption_3').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit11_41c9b4c8-c23f-4acb-b55d-990ed2edc860_MultiChoiceOption_3').prop("checked", true);
+
+        //C4 init
+
+        $('#Motifs_x0020_Non_x002d_Conformit10_1f658aec-181a-4ecb-bfb4-e60535f2b379_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit10_1f658aec-181a-4ecb-bfb4-e60535f2b379_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit10_1f658aec-181a-4ecb-bfb4-e60535f2b379_MultiChoiceOption_2').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit10_1f658aec-181a-4ecb-bfb4-e60535f2b379_MultiChoiceOption_3').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit10_1f658aec-181a-4ecb-bfb4-e60535f2b379_MultiChoiceOption_3').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit10_1f658aec-181a-4ecb-bfb4-e60535f2b379_MultiChoiceOption_3').prop("checked", true);
+
+        //C5 init 
+
+        $('#Motifs_x0020_Non_x002d_Conformit9_7f3f53c9-fa11-45a7-b22a-7784b2369cba_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit9_7f3f53c9-fa11-45a7-b22a-7784b2369cba_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit9_7f3f53c9-fa11-45a7-b22a-7784b2369cba_MultiChoiceOption_2').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit9_7f3f53c9-fa11-45a7-b22a-7784b2369cba_MultiChoiceOption_3').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit9_7f3f53c9-fa11-45a7-b22a-7784b2369cba_MultiChoiceOption_3').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit9_7f3f53c9-fa11-45a7-b22a-7784b2369cba_MultiChoiceOption_3').prop("checked", true);
+
+        //C6 init
+
+        $('#Motifs_x0020_Non_x002d_Conformit8_4f6c4a31-c887-49b6-adaa-bc08a81abb32_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit8_4f6c4a31-c887-49b6-adaa-bc08a81abb32_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit8_4f6c4a31-c887-49b6-adaa-bc08a81abb32_MultiChoiceOption_2').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit8_4f6c4a31-c887-49b6-adaa-bc08a81abb32_MultiChoiceOption_3').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit8_4f6c4a31-c887-49b6-adaa-bc08a81abb32_MultiChoiceOption_4').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit8_4f6c4a31-c887-49b6-adaa-bc08a81abb32_MultiChoiceOption_5').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit8_4f6c4a31-c887-49b6-adaa-bc08a81abb32_MultiChoiceOption_5').prop("checked", true);
+
+        //C7 init
+
+        $('#Motifs_x0020_Non_x002d_Conformit7_dc2a1cb4-26c7-4837-9093-4b51d13806ce_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit7_dc2a1cb4-26c7-4837-9093-4b51d13806ce_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit7_dc2a1cb4-26c7-4837-9093-4b51d13806ce_MultiChoiceOption_2').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit7_dc2a1cb4-26c7-4837-9093-4b51d13806ce_MultiChoiceOption_2').prop("checked", true);
+
+        //C8 init
+
+        $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_2').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_3').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_4').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_5').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_6').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_6').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_6').prop("checked", true);
+
+
+        //C9 init
+
+        $('#Motifs_x0020_Non_x002d_Conformit5_847934b8-833a-4fe2-9fae-e4197caf131d_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit5_847934b8-833a-4fe2-9fae-e4197caf131d_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit5_847934b8-833a-4fe2-9fae-e4197caf131d_MultiChoiceOption_2').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit5_847934b8-833a-4fe2-9fae-e4197caf131d_MultiChoiceOption_2').prop("checked", true);
+
+        //C10 init
+
+        $('#Motifs_x0020_Non_x002d_Conformit15_e0158447-fbe3-4f37-a762-6d3413b5098c_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit15_e0158447-fbe3-4f37-a762-6d3413b5098c_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit15_e0158447-fbe3-4f37-a762-6d3413b5098c_MultiChoiceOption_2').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit15_e0158447-fbe3-4f37-a762-6d3413b5098c_MultiChoiceOption_2').prop("checked", true);
+
+        //C11 init
+
+
+        $('#Motifs_x0020_Non_x002d_Conformit14_1642885e-ca21-4119-b631-c24cc77f5dca_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit14_1642885e-ca21-4119-b631-c24cc77f5dca_MultiChoiceOption_1').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit14_1642885e-ca21-4119-b631-c24cc77f5dca_MultiChoiceOption_1').prop("checked", true);
+
+
+        //C12 init
+
+        $('#Motifs_x0020_Non_x002d_Conformit13_b2962f34-8c8d-4cf8-8533-96816faf8346_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit13_b2962f34-8c8d-4cf8-8533-96816faf8346_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit13_b2962f34-8c8d-4cf8-8533-96816faf8346_MultiChoiceOption_2').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit13_b2962f34-8c8d-4cf8-8533-96816faf8346_MultiChoiceOption_3').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit13_b2962f34-8c8d-4cf8-8533-96816faf8346_MultiChoiceOption_4').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit13_b2962f34-8c8d-4cf8-8533-96816faf8346_MultiChoiceOption_4').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit13_b2962f34-8c8d-4cf8-8533-96816faf8346_MultiChoiceOption_4').prop("checked", true);
+
+        //D1 init
+
+        $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_2').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_3').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_4').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_5').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_6').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_6').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_6').prop("checked", true);
+
+        //D2 init
+
+
+        $('#Motifs_x0020_Non_x002d_Conformit3_6050703d-770f-4360-94d9-835592577482_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit3_6050703d-770f-4360-94d9-835592577482_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit3_6050703d-770f-4360-94d9-835592577482_MultiChoiceOption_2').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit3_6050703d-770f-4360-94d9-835592577482_MultiChoiceOption_3').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit3_6050703d-770f-4360-94d9-835592577482_MultiChoiceOption_3').prop("checked", true);
+
+        //D3 init 
+
+        $('#Motifs_x0020_Non_x002d_Conformit2_ebbde5c8-b08d-41db-9992-a279d055789c_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit2_ebbde5c8-b08d-41db-9992-a279d055789c_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit2_ebbde5c8-b08d-41db-9992-a279d055789c_MultiChoiceOption_2').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit2_ebbde5c8-b08d-41db-9992-a279d055789c_MultiChoiceOption_3').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit2_ebbde5c8-b08d-41db-9992-a279d055789c_MultiChoiceOption_4').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit2_ebbde5c8-b08d-41db-9992-a279d055789c_MultiChoiceOption_4').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit2_ebbde5c8-b08d-41db-9992-a279d055789c_MultiChoiceOption_4').prop("checked", true);
+
+        //D4 init 
+
+        $('#Motifs_x0020_Non_x002d_Conformit1_a916ed06-2e9a-4644-8880-eb0dbf16d4a6_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit1_a916ed06-2e9a-4644-8880-eb0dbf16d4a6_MultiChoiceOption_1').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit1_a916ed06-2e9a-4644-8880-eb0dbf16d4a6_MultiChoiceOption_1').prop("checked", true);
+
+        //E1 init
+
+        $('[id="E_x002e_1_x002e__x0020_V_x00e9_r_a3860c5d-fc90-4253-acb3-dbe37f8baa32_$RadioButtonChoiceField0"]').prop("checked", true);
+        $('#Motifs_x0020_Non_x002d_Conformit0_e5f8cd41-95d6-46d8-8226-a38b6510b01d_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit0_e5f8cd41-95d6-46d8-8226-a38b6510b01d_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit0_e5f8cd41-95d6-46d8-8226-a38b6510b01d_MultiChoiceOption_2').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit0_e5f8cd41-95d6-46d8-8226-a38b6510b01d_MultiChoiceOption_3').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit0_e5f8cd41-95d6-46d8-8226-a38b6510b01d_MultiChoiceOption_4').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit0_e5f8cd41-95d6-46d8-8226-a38b6510b01d_MultiChoiceOption_4').prop("checked", true);
+
+        //E2 init
+
+        $('[id="E_x002e_2_x002e__x0020_Contr_x00_70a0a4d5-f4c3-4b87-9ae3-d153a75999e2_$RadioButtonChoiceField0"]').prop("checked", true);
+        $('#Motifs_x0020_Non_x002d_Conformit_b454fcb9-2872-4ca7-9575-e100d9fedfcf_MultiChoiceOption_0').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit_b454fcb9-2872-4ca7-9575-e100d9fedfcf_MultiChoiceOption_1').prop("disabled", true);
+        $('#Motifs_x0020_Non_x002d_Conformit_b454fcb9-2872-4ca7-9575-e100d9fedfcf_MultiChoiceOption_2').prop("disabled", false);
+        $('#Motifs_x0020_Non_x002d_Conformit_b454fcb9-2872-4ca7-9575-e100d9fedfcf_MultiChoiceOption_2').prop("checked", true);
+
+        
+        var userid = _spPageContextInfo.userId;
+        var requestUri = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('Agence')/items";
+
+        console.log(`${_spPageContextInfo.webAbsoluteUrl}/_api/web/getuserbyid(${userid})`);
+
+        var groups=[]
+
+        axios.get(`${_spPageContextInfo.webAbsoluteUrl}/_api/Web/GetUserById(${userid})/Groups`)
+        .then((res)=>{
+            console.log(res.data.value)
+            groups=res.data.value
+for(let i=0;i<groups.length;i++){
+    console.log(groups[i].Title);
+if(groups[i].Title==="Contrôleur central"){
+    
+
+    $('[id="Avis_x0020_DCPR"]').show(); //avis dcpr text
+        $('[id="Avis_x0020_DCPR_b8be0846-57d4-40f4-9e68-276df8e5072a_ChoiceRadioTable"]').show(); //avis dcpr multiple choices
+        $('[id="Description_x0020_avis_x0020_DCP"]').show();//Description avis DCPR text
+        $('[id="Description_x0020_avis_x0020_DCP_bb43bebd-ae74-454f-8529-a8466234657a_$TextField_inplacerte"]').show();//Description avis DCPR textAria
+
+}
+ if(groups[i].Title==="contrôleur régional"){
+    $('[id="Statut_x0020_R_x00e9_gional"]').show();//Statut Régional text
+        $('[id="Statut_x0020_R_x00e9_gional_324d0e4e-a50c-4b3f-824c-83a7df6df89c_ChoiceRadioTable"]').show();//Statut Régional multiple choices
+}
+}
+
+        })
+.catch(err=>console.log(err))
+
+        var agenciesData = []
+
+
+
+
+
+
 
         axios.get(requestUri)
             .then((res) => {
@@ -97,9 +455,9 @@
 
         //A2\\
         //if the Conforme box is checked
-       $('[id="A_x002e_2_x002e__x0020_Pi_x00e8__94577ca7-d065-4b78-90b3-0df832809b6d_$RadioButtonChoiceField0"]').on('change', function () {
+        $('[id="A_x002e_2_x002e__x0020_Pi_x00e8__94577ca7-d065-4b78-90b3-0df832809b6d_$RadioButtonChoiceField0"]').on('change', function () {
             var checkB = document.getElementById('A_x002e_2_x002e__x0020_Pi_x00e8__94577ca7-d065-4b78-90b3-0df832809b6d_$RadioButtonChoiceField0').checked;
-            console.log(checkB, "checkB");
+
             document.getElementById('A_x002e_2_x002e__x0020_Pi_x00e8__94577ca7-d065-4b78-90b3-0df832809b6d_$RadioButtonChoiceField0')
             if (checkB) {
 
@@ -112,7 +470,7 @@
                 $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_6').prop("disabled", true);
                 $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_7').prop("disabled", true);
                 $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_8').prop("disabled", true);
-                $('#Motifs_x0020_ Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption-9').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_9').prop("disabled", true);
                 $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_10').prop("disabled", true);
                 $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_11').prop("disabled", true);
                 $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_12').prop("disabled", true);
@@ -137,40 +495,40 @@
 
             document.getElementById('A_x002e_2_x002e__x0020_Pi_x00e8__94577ca7-d065-4b78-90b3-0df832809b6d_$RadioButtonChoiceField0')
 
-          
+
             $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_0').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_1').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_2').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_3').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_4').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_5').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_6').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_7').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_8').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption-9').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_10').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_11').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_12').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_13').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_14').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_15').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_16').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_17').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_18').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_19').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_20').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_21').prop("checked", true);
-                $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_21').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_2').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_3').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_4').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_5').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_6').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_7').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_8').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_9').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_10').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_11').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_12').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_13').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_14').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_15').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_16').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_17').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_18').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_19').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_20').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_21').prop("checked", false);
+            $('#Motifs_x0020_Non_x002d_Conformit29_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_21').prop("disabled", true);
 
 
         });
 
- //A3\\
+        //A3\\
         //if the Conforme box is checked
         $('[id="A_x002e_3_x002e__x0020_Contr_x00_d62444e9-450b-4a25-a4cf-af00d42a1c56_$RadioButtonChoiceField0"]').on('change', function () {
             var checkB = document.getElementById('A_x002e_3_x002e__x0020_Contr_x00_d62444e9-450b-4a25-a4cf-af00d42a1c56_$RadioButtonChoiceField0').checked;
-            console.log(checkB, "checkB");
-            document.getElementById('A_x002e_3_x002e__x0020_Contr_x00_d62444e9-450b-4a25-a4cf-af00d42a1c56_$RadioButtonChoiceField0')
+
+
             if (checkB) {
 
                 $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_0').prop("disabled", true);
@@ -184,9 +542,9 @@
                 $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_8').prop("disabled", true);
                 $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_9').prop("disabled", true);
                 $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_10').prop("disabled", true);
-               ;
-                $('#Motifs_x0020_Non_x002d_Conformit28_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_11').prop("checked", true);
-                $('#Motifs_x0020_Non_x002d_Conformit28_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_11').prop("disabled", true);
+
+                $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_11').prop("checked", true);
+                $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_11').prop("disabled", false);
 
             }
 
@@ -198,21 +556,781 @@
 
             document.getElementById('A_x002e_2_x002e__x0020_Pi_x00e8__94577ca7-d065-4b78-90b3-0df832809b6d_$RadioButtonChoiceField0')
 
-          
+
             $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_0').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_1').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_2').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_3').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_4').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_5').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_6').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_7').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_8').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_9').prop("disabled", false);
-                $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_10').prop("disabled", false);
-               ;
-                $('#Motifs_x0020_Non_x002d_Conformit28_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_11').prop("checked", true);
-                $('#Motifs_x0020_Non_x002d_Conformit28_9fd7b8b1-d830-44fd-a618-10393a940877_MultiChoiceOption_11').prop("disabled", true);
+            $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_2').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_3').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_4').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_5').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_6').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_7').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_8').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_9').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_10').prop("disabled", false);
+
+            $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_11').prop("checked", false);
+            $('#Motifs_x0020_Non_x002d_Conformit28_f0cb5d51-16fd-4f3f-8a8b-358ff648cde4_MultiChoiceOption_11').prop("disabled", true);
+
+
+        });
+
+        //A4\\----------------
+
+
+
+        //if the Conforme box is checked
+        $('[id="A_x002e_4_x0020_Signature_x0020__3ddc08e4-b9b1-4d76-9d86-4a8ae9001d55_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('A_x002e_4_x0020_Signature_x0020__3ddc08e4-b9b1-4d76-9d86-4a8ae9001d55_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit27_8bb4dab0-1456-46dc-8356-bec471b4eabe_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit27_8bb4dab0-1456-46dc-8356-bec471b4eabe_MultiChoiceOption_0').prop("checked", false);
+                $('#Motifs_x0020_Non_x002d_Conformit27_8bb4dab0-1456-46dc-8356-bec471b4eabe_MultiChoiceOption_1').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit27_8bb4dab0-1456-46dc-8356-bec471b4eabe_MultiChoiceOption_1').prop("checked", true);
+
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+
+        $('[id="A_x002e_4_x0020_Signature_x0020__3ddc08e4-b9b1-4d76-9d86-4a8ae9001d55_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit27_8bb4dab0-1456-46dc-8356-bec471b4eabe_MultiChoiceOption_0').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit27_8bb4dab0-1456-46dc-8356-bec471b4eabe_MultiChoiceOption_0').prop("checked", true);
+            $('#Motifs_x0020_Non_x002d_Conformit27_8bb4dab0-1456-46dc-8356-bec471b4eabe_MultiChoiceOption_1').prop("checked", false);
+            $('#Motifs_x0020_Non_x002d_Conformit27_8bb4dab0-1456-46dc-8356-bec471b4eabe_MultiChoiceOption_1').prop("disabled", true);
+
+
+
+
+
+        });
+
+
+        //A5\\
+
+        $('[id="A_x002e_5_x0020_Conformit_x00e9__dc7ada44-6027-4106-a45e-2ffbe014f9d5_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('A_x002e_5_x0020_Conformit_x00e9__dc7ada44-6027-4106-a45e-2ffbe014f9d5_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit26_994f395d-081d-40b7-a35a-933c7f78f57c_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit26_994f395d-081d-40b7-a35a-933c7f78f57c_MultiChoiceOption_1').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit26_994f395d-081d-40b7-a35a-933c7f78f57c_MultiChoiceOption_2').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit26_994f395d-081d-40b7-a35a-933c7f78f57c_MultiChoiceOption_3').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit26_994f395d-081d-40b7-a35a-933c7f78f57c_MultiChoiceOption_4').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit26_994f395d-081d-40b7-a35a-933c7f78f57c_MultiChoiceOption_5').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit26_994f395d-081d-40b7-a35a-933c7f78f57c_MultiChoiceOption_6').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit26_994f395d-081d-40b7-a35a-933c7f78f57c_MultiChoiceOption_6').prop("checked", true);
+
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+
+        $('[id="A_x002e_5_x0020_Conformit_x00e9__dc7ada44-6027-4106-a45e-2ffbe014f9d5_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit26_994f395d-081d-40b7-a35a-933c7f78f57c_MultiChoiceOption_0').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit26_994f395d-081d-40b7-a35a-933c7f78f57c_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit26_994f395d-081d-40b7-a35a-933c7f78f57c_MultiChoiceOption_2').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit26_994f395d-081d-40b7-a35a-933c7f78f57c_MultiChoiceOption_3').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit26_994f395d-081d-40b7-a35a-933c7f78f57c_MultiChoiceOption_4').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit26_994f395d-081d-40b7-a35a-933c7f78f57c_MultiChoiceOption_5').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit26_994f395d-081d-40b7-a35a-933c7f78f57c_MultiChoiceOption_6').prop("disabled", true);
+            $('#Motifs_x0020_Non_x002d_Conformit26_994f395d-081d-40b7-a35a-933c7f78f57c_MultiChoiceOption_6').prop("checked", false);
+
+
+
+        });
+
+
+        //A6\\
+
+        $('[id="A_x002e_6_x0020_Redressement_x00_2bb84aa9-0ed2-4ff0-bd0a-e000240a7ce5_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('A_x002e_6_x0020_Redressement_x00_2bb84aa9-0ed2-4ff0-bd0a-e000240a7ce5_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit25_1ac6f5de-3466-40f8-b488-9297b5041126_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit25_1ac6f5de-3466-40f8-b488-9297b5041126_MultiChoiceOption_1').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit25_1ac6f5de-3466-40f8-b488-9297b5041126_MultiChoiceOption_2').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit25_1ac6f5de-3466-40f8-b488-9297b5041126_MultiChoiceOption_2').prop("checked", true);
+
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+
+        $('[id="A_x002e_6_x0020_Redressement_x00_2bb84aa9-0ed2-4ff0-bd0a-e000240a7ce5_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit25_1ac6f5de-3466-40f8-b488-9297b5041126_MultiChoiceOption_0').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit25_1ac6f5de-3466-40f8-b488-9297b5041126_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit25_1ac6f5de-3466-40f8-b488-9297b5041126_MultiChoiceOption_2').prop("disabled", true);
+            $('#Motifs_x0020_Non_x002d_Conformit25_1ac6f5de-3466-40f8-b488-9297b5041126_MultiChoiceOption_2').prop("checked", false);
+
+
+        });
+
+        //A7\\
+
+        $('[id="A_x002e_7_x0020_Signature_x0020__5798aac7-febd-423d-b449-6fd84f1853f2_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('A_x002e_7_x0020_Signature_x0020__5798aac7-febd-423d-b449-6fd84f1853f2_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit24_93cb05bc-609a-4242-b84e-44e5e4284aa2_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit24_93cb05bc-609a-4242-b84e-44e5e4284aa2_MultiChoiceOption_1').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit24_93cb05bc-609a-4242-b84e-44e5e4284aa2_MultiChoiceOption_2').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit24_93cb05bc-609a-4242-b84e-44e5e4284aa2_MultiChoiceOption_3').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit24_93cb05bc-609a-4242-b84e-44e5e4284aa2_MultiChoiceOption_3').prop("checked", true);
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+        $('[id="A_x002e_7_x0020_Signature_x0020__5798aac7-febd-423d-b449-6fd84f1853f2_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit24_93cb05bc-609a-4242-b84e-44e5e4284aa2_MultiChoiceOption_0').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit24_93cb05bc-609a-4242-b84e-44e5e4284aa2_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit24_93cb05bc-609a-4242-b84e-44e5e4284aa2_MultiChoiceOption_2').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit24_93cb05bc-609a-4242-b84e-44e5e4284aa2_MultiChoiceOption_3').prop("disabled", true);
+            $('#Motifs_x0020_Non_x002d_Conformit24_93cb05bc-609a-4242-b84e-44e5e4284aa2_MultiChoiceOption_3').prop("checked", false);
+
+
+        });
+
+
+        //A8\\
+
+        $('[id="A_x002e_8_x0020_Concordance_x002_34c81f8f-e940-4a48-b278-24a0fe386bdc_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('A_x002e_8_x0020_Concordance_x002_34c81f8f-e940-4a48-b278-24a0fe386bdc_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit23_87be9a77-5ba7-4ec9-bf7a-00244ff5992b_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit23_87be9a77-5ba7-4ec9-bf7a-00244ff5992b_MultiChoiceOption_1').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit23_87be9a77-5ba7-4ec9-bf7a-00244ff5992b_MultiChoiceOption_2').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit23_87be9a77-5ba7-4ec9-bf7a-00244ff5992b_MultiChoiceOption_2').prop("checked", true);
+
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+
+        $('[id="A_x002e_8_x0020_Concordance_x002_34c81f8f-e940-4a48-b278-24a0fe386bdc_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit23_87be9a77-5ba7-4ec9-bf7a-00244ff5992b_MultiChoiceOption_0').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit23_87be9a77-5ba7-4ec9-bf7a-00244ff5992b_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit23_87be9a77-5ba7-4ec9-bf7a-00244ff5992b_MultiChoiceOption_2').prop("disabled", true);
+            $('#Motifs_x0020_Non_x002d_Conformit23_87be9a77-5ba7-4ec9-bf7a-00244ff5992b_MultiChoiceOption_2').prop("checked", false);
+
+
+        });
+        //B section-------------------------------------------------------------------------------------------------------------------------------------
+
+
+        //B1\\
+
+        $('[id="B_x002e_1_x002e__x0020_Conformit_2ff620a6-0f53-465e-b4bc-83656575b10f_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('B_x002e_1_x002e__x0020_Conformit_2ff620a6-0f53-465e-b4bc-83656575b10f_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_1').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_2').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_3').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_4').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_5').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_6').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_6').prop("checked", true);
+                $('#Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_6').show()
+                $(`label[for="Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_6"]`).show()
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+
+        $('[id="B_x002e_1_x002e__x0020_Conformit_2ff620a6-0f53-465e-b4bc-83656575b10f_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_0').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_2').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_3').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_4').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_5').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_6').hide()
+            $(`label[for="Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_6"]`).hide()
+            $('#Motifs_x0020_Non_x002d_Conformit22_95c63ed0-1ece-43e8-a680-b932db0a901a_MultiChoiceOption_6').prop("checked", false);
+
+
+
+        });
+
+        //B2\\
+
+
+        $('[id="B_x002e_2_x002e__x0020_Alimentat_30696b3a-6246-422e-826a-7329e5720503_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('B_x002e_2_x002e__x0020_Alimentat_30696b3a-6246-422e-826a-7329e5720503_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit21_d371661c-7f08-41b0-ac32-0761e83f30b1_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit21_d371661c-7f08-41b0-ac32-0761e83f30b1_MultiChoiceOption_1').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit21_d371661c-7f08-41b0-ac32-0761e83f30b1_MultiChoiceOption_2').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit21_d371661c-7f08-41b0-ac32-0761e83f30b1_MultiChoiceOption_3').prop("disabled", true);
+
+                $('#Motifs_x0020_Non_x002d_Conformit21_d371661c-7f08-41b0-ac32-0761e83f30b1_MultiChoiceOption_4').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit21_d371661c-7f08-41b0-ac32-0761e83f30b1_MultiChoiceOption_4').prop("checked", true);
+                $('#Motifs_x0020_Non_x002d_Conformit21_d371661c-7f08-41b0-ac32-0761e83f30b1_MultiChoiceOption_4').show()
+                $(`label[for="Motifs_x0020_Non_x002d_Conformit21_d371661c-7f08-41b0-ac32-0761e83f30b1_MultiChoiceOption_4"]`).show()
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+
+        $('[id="B_x002e_2_x002e__x0020_Alimentat_30696b3a-6246-422e-826a-7329e5720503_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit21_d371661c-7f08-41b0-ac32-0761e83f30b1_MultiChoiceOption_0').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit21_d371661c-7f08-41b0-ac32-0761e83f30b1_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit21_d371661c-7f08-41b0-ac32-0761e83f30b1_MultiChoiceOption_2').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit21_d371661c-7f08-41b0-ac32-0761e83f30b1_MultiChoiceOption_3').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit21_d371661c-7f08-41b0-ac32-0761e83f30b1_MultiChoiceOption_4').prop("disabled", false);
+
+            $('#Motifs_x0020_Non_x002d_Conformit21_d371661c-7f08-41b0-ac32-0761e83f30b1_MultiChoiceOption_4').hide()
+            $(`label[for="Motifs_x0020_Non_x002d_Conformit21_d371661c-7f08-41b0-ac32-0761e83f30b1_MultiChoiceOption_4"]`).hide()
+            $('#Motifs_x0020_Non_x002d_Conformit21_d371661c-7f08-41b0-ac32-0761e83f30b1_MultiChoiceOption_4').prop("checked", false);
+
+
+
+        });
+
+        //B3\\
+
+        $('[id="B_x002e_3_x0020_Alimentation_x00_175cb53b-a24d-4343-8343-5ea50efbb2f5_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('B_x002e_3_x0020_Alimentation_x00_175cb53b-a24d-4343-8343-5ea50efbb2f5_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit20_8ba200dd-4ab1-4c6f-b2b4-742b2e39a95b_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit20_8ba200dd-4ab1-4c6f-b2b4-742b2e39a95b_MultiChoiceOption_1').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit20_8ba200dd-4ab1-4c6f-b2b4-742b2e39a95b_MultiChoiceOption_2').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit20_8ba200dd-4ab1-4c6f-b2b4-742b2e39a95b_MultiChoiceOption_3').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit20_8ba200dd-4ab1-4c6f-b2b4-742b2e39a95b_MultiChoiceOption_4').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit20_8ba200dd-4ab1-4c6f-b2b4-742b2e39a95b_MultiChoiceOption_4').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit20_8ba200dd-4ab1-4c6f-b2b4-742b2e39a95b_MultiChoiceOption_4').prop("checked", true);
+                $('#Motifs_x0020_Non_x002d_Conformit20_8ba200dd-4ab1-4c6f-b2b4-742b2e39a95b_MultiChoiceOption_4').show()
+                $(`label[for="Motifs_x0020_Non_x002d_Conformit20_8ba200dd-4ab1-4c6f-b2b4-742b2e39a95b_MultiChoiceOption_4"]`).show()
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+
+        $('[id="B_x002e_3_x0020_Alimentation_x00_175cb53b-a24d-4343-8343-5ea50efbb2f5_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit20_8ba200dd-4ab1-4c6f-b2b4-742b2e39a95b_MultiChoiceOption_0').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit20_8ba200dd-4ab1-4c6f-b2b4-742b2e39a95b_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit20_8ba200dd-4ab1-4c6f-b2b4-742b2e39a95b_MultiChoiceOption_2').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit20_8ba200dd-4ab1-4c6f-b2b4-742b2e39a95b_MultiChoiceOption_3').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit20_8ba200dd-4ab1-4c6f-b2b4-742b2e39a95b_MultiChoiceOption_4').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit20_8ba200dd-4ab1-4c6f-b2b4-742b2e39a95b_MultiChoiceOption_4').hide()
+            $(`label[for="Motifs_x0020_Non_x002d_Conformit20_8ba200dd-4ab1-4c6f-b2b4-742b2e39a95b_MultiChoiceOption_4"]`).hide()
+            $('#Motifs_x0020_Non_x002d_Conformit20_8ba200dd-4ab1-4c6f-b2b4-742b2e39a95b_MultiChoiceOption_4').prop("checked", false);
+
+
+
+        });
+
+        //B4\\
+
+
+        $('[id="B_x002e_4_x0020_V_x00e9_rificati_a8412bb1-1bfd-47a9-9ded-d131ae39a74a_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('B_x002e_4_x0020_V_x00e9_rificati_a8412bb1-1bfd-47a9-9ded-d131ae39a74a_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_1').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_2').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_4').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_5').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_6').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_7').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_3').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_8').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_8').prop("checked", true);
+                $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_8').show()
+                $(`label[for="Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_8"]`).show()
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+
+        $('[id="B_x002e_4_x0020_V_x00e9_rificati_a8412bb1-1bfd-47a9-9ded-d131ae39a74a_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_0').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_2').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_3').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_4').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_5').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_6').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_7').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_8').prop("disabled", true);
+            $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_8').hide()
+            $(`label[for="Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_8"]`).hide()
+            $('#Motifs_x0020_Non_x002d_Conformit19_abd72d4f-d30a-4259-8ecd-53de35841078_MultiChoiceOption_8').prop("checked", false);
+
+
+
+        });
+
+        //B5\\
+
+
+        $('[id="B_x002e_5_x002e__x0020_Contr_x00_6d7bae06-f107-4c5a-ac36-0422b653b3cc_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('B_x002e_5_x002e__x0020_Contr_x00_6d7bae06-f107-4c5a-ac36-0422b653b3cc_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit18_cbc63217-4821-4f6a-a65f-7f4687f613fb_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit18_cbc63217-4821-4f6a-a65f-7f4687f613fb_MultiChoiceOption_1').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit18_cbc63217-4821-4f6a-a65f-7f4687f613fb_MultiChoiceOption_2').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit18_cbc63217-4821-4f6a-a65f-7f4687f613fb_MultiChoiceOption_3').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit18_cbc63217-4821-4f6a-a65f-7f4687f613fb_MultiChoiceOption_3').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit18_cbc63217-4821-4f6a-a65f-7f4687f613fb_MultiChoiceOption_3').prop("checked", true);
+                $('#Motifs_x0020_Non_x002d_Conformit18_cbc63217-4821-4f6a-a65f-7f4687f613fb_MultiChoiceOption_3').show()
+                $(`label[for="Motifs_x0020_Non_x002d_Conformit18_cbc63217-4821-4f6a-a65f-7f4687f613fb_MultiChoiceOption_3"]`).show()
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+
+        $('[id="B_x002e_5_x002e__x0020_Contr_x00_6d7bae06-f107-4c5a-ac36-0422b653b3cc_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit18_cbc63217-4821-4f6a-a65f-7f4687f613fb_MultiChoiceOption_0').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit18_cbc63217-4821-4f6a-a65f-7f4687f613fb_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit18_cbc63217-4821-4f6a-a65f-7f4687f613fb_MultiChoiceOption_2').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit18_cbc63217-4821-4f6a-a65f-7f4687f613fb_MultiChoiceOption_3').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit18_cbc63217-4821-4f6a-a65f-7f4687f613fb_MultiChoiceOption_3').hide()
+            $(`label[for="Motifs_x0020_Non_x002d_Conformit18_cbc63217-4821-4f6a-a65f-7f4687f613fb_MultiChoiceOption_3"]`).hide()
+            $('#Motifs_x0020_Non_x002d_Conformit18_cbc63217-4821-4f6a-a65f-7f4687f613fb_MultiChoiceOption_3').prop("checked", false);
+
+
+
+        });
+
+        //B6\\
+
+
+        $('[id="B_x002e_6_x002e__x0020_Rapports__78dd5c29-0066-40e6-b043-f5b3b7342b7a_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('B_x002e_6_x002e__x0020_Rapports__78dd5c29-0066-40e6-b043-f5b3b7342b7a_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit17_b416626f-115b-4193-9910-22c9762e55d0_MultiChoiceOption_0').prop("disabled", true);
+
+                $('#Motifs_x0020_Non_x002d_Conformit17_b416626f-115b-4193-9910-22c9762e55d0_MultiChoiceOption_1').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit17_b416626f-115b-4193-9910-22c9762e55d0_MultiChoiceOption_1').prop("checked", true);
+                $('#Motifs_x0020_Non_x002d_Conformit17_b416626f-115b-4193-9910-22c9762e55d0_MultiChoiceOption_1').show()
+                $(`label[for="Motifs_x0020_Non_x002d_Conformit17_b416626f-115b-4193-9910-22c9762e55d0_MultiChoiceOption_1"]`).show()
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+
+        $('[id="B_x002e_6_x002e__x0020_Rapports__78dd5c29-0066-40e6-b043-f5b3b7342b7a_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit17_b416626f-115b-4193-9910-22c9762e55d0_MultiChoiceOption_0').prop("disabled", false);
+
+            $('#Motifs_x0020_Non_x002d_Conformit17_b416626f-115b-4193-9910-22c9762e55d0_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit17_b416626f-115b-4193-9910-22c9762e55d0_MultiChoiceOption_1').hide()
+            $(`label[for="Motifs_x0020_Non_x002d_Conformit17_b416626f-115b-4193-9910-22c9762e55d0_MultiChoiceOption_1"]`).hide()
+            $('#Motifs_x0020_Non_x002d_Conformit17_b416626f-115b-4193-9910-22c9762e55d0_MultiChoiceOption_1').prop("checked", false);
+
+
+
+        });
+
+        // C section -------------------------------------------------------------------------------------------------------------------------------
+
+
+        //C1\\
+
+        $('[id="C_x002e_1_x002e__x0020_Contr_x00_b4710739-6925-4268-b056-6f236fc9b0f4_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('C_x002e_1_x002e__x0020_Contr_x00_b4710739-6925-4268-b056-6f236fc9b0f4_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit16_190ef556-2016-4481-993b-e19893a1b63b_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit16_190ef556-2016-4481-993b-e19893a1b63b_MultiChoiceOption_1').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit16_190ef556-2016-4481-993b-e19893a1b63b_MultiChoiceOption_2').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit16_190ef556-2016-4481-993b-e19893a1b63b_MultiChoiceOption_3').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit16_190ef556-2016-4481-993b-e19893a1b63b_MultiChoiceOption_4').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit16_190ef556-2016-4481-993b-e19893a1b63b_MultiChoiceOption_4').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit16_190ef556-2016-4481-993b-e19893a1b63b_MultiChoiceOption_4').prop("checked", true);
+                $('#Motifs_x0020_Non_x002d_Conformit16_190ef556-2016-4481-993b-e19893a1b63b_MultiChoiceOption_4').show()
+                $(`label[for="Motifs_x0020_Non_x002d_Conformit16_190ef556-2016-4481-993b-e19893a1b63b_MultiChoiceOption_4"]`).show()
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+
+        $('[id="C_x002e_1_x002e__x0020_Contr_x00_b4710739-6925-4268-b056-6f236fc9b0f4_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit16_190ef556-2016-4481-993b-e19893a1b63b_MultiChoiceOption_0').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit16_190ef556-2016-4481-993b-e19893a1b63b_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit16_190ef556-2016-4481-993b-e19893a1b63b_MultiChoiceOption_2').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit16_190ef556-2016-4481-993b-e19893a1b63b_MultiChoiceOption_3').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit16_190ef556-2016-4481-993b-e19893a1b63b_MultiChoiceOption_4').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit16_190ef556-2016-4481-993b-e19893a1b63b_MultiChoiceOption_4').hide()
+            $(`label[for="Motifs_x0020_Non_x002d_Conformit16_190ef556-2016-4481-993b-e19893a1b63b_MultiChoiceOption_4"]`).hide()
+            $('#Motifs_x0020_Non_x002d_Conformit16_190ef556-2016-4481-993b-e19893a1b63b_MultiChoiceOption_4').prop("checked", false);
+
+
+
+        });
+
+
+        //C2\\
+
+
+        $('[id="C_x002e_2_x002e__x0020_Contr_x00_11c79069-4b0c-468c-bd21-1b8ba2c90efd_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('C_x002e_2_x002e__x0020_Contr_x00_11c79069-4b0c-468c-bd21-1b8ba2c90efd_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit12_817c7ea2-12f9-40bd-8667-34088743b8d5_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit12_817c7ea2-12f9-40bd-8667-34088743b8d5_MultiChoiceOption_1').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit12_817c7ea2-12f9-40bd-8667-34088743b8d5_MultiChoiceOption_2').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit12_817c7ea2-12f9-40bd-8667-34088743b8d5_MultiChoiceOption_3').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit12_817c7ea2-12f9-40bd-8667-34088743b8d5_MultiChoiceOption_4').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit12_817c7ea2-12f9-40bd-8667-34088743b8d5_MultiChoiceOption_4').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit12_817c7ea2-12f9-40bd-8667-34088743b8d5_MultiChoiceOption_4').prop("checked", true);
+                $('#Motifs_x0020_Non_x002d_Conformit12_817c7ea2-12f9-40bd-8667-34088743b8d5_MultiChoiceOption_4').show()
+                $(`label[for="Motifs_x0020_Non_x002d_Conformit12_817c7ea2-12f9-40bd-8667-34088743b8d5_MultiChoiceOption_4"]`).show()
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+
+        $('[id="C_x002e_2_x002e__x0020_Contr_x00_11c79069-4b0c-468c-bd21-1b8ba2c90efd_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit12_817c7ea2-12f9-40bd-8667-34088743b8d5_MultiChoiceOption_0').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit12_817c7ea2-12f9-40bd-8667-34088743b8d5_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit12_817c7ea2-12f9-40bd-8667-34088743b8d5_MultiChoiceOption_2').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit12_817c7ea2-12f9-40bd-8667-34088743b8d5_MultiChoiceOption_3').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit12_817c7ea2-12f9-40bd-8667-34088743b8d5_MultiChoiceOption_4').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit12_817c7ea2-12f9-40bd-8667-34088743b8d5_MultiChoiceOption_4').hide()
+            $(`label[for="Motifs_x0020_Non_x002d_Conformit12_817c7ea2-12f9-40bd-8667-34088743b8d5_MultiChoiceOption_4"]`).hide()
+            $('#Motifs_x0020_Non_x002d_Conformit12_817c7ea2-12f9-40bd-8667-34088743b8d5_MultiChoiceOption_4').prop("checked", false);
+
+
+
+        });
+
+        //C3\\
+
+        $('[id="C_x002e_3_x002e__x0020_Contr_x00_36eba054-295d-452d-87f4-b724f3455107_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('C_x002e_3_x002e__x0020_Contr_x00_36eba054-295d-452d-87f4-b724f3455107_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit11_41c9b4c8-c23f-4acb-b55d-990ed2edc860_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit11_41c9b4c8-c23f-4acb-b55d-990ed2edc860_MultiChoiceOption_1').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit11_41c9b4c8-c23f-4acb-b55d-990ed2edc860_MultiChoiceOption_2').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit11_41c9b4c8-c23f-4acb-b55d-990ed2edc860_MultiChoiceOption_3').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit11_41c9b4c8-c23f-4acb-b55d-990ed2edc860_MultiChoiceOption_3').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit11_41c9b4c8-c23f-4acb-b55d-990ed2edc860_MultiChoiceOption_3').prop("checked", true);
+                $('#Motifs_x0020_Non_x002d_Conformit11_41c9b4c8-c23f-4acb-b55d-990ed2edc860_MultiChoiceOption_3').show()
+                $(`label[for="Motifs_x0020_Non_x002d_Conformit11_41c9b4c8-c23f-4acb-b55d-990ed2edc860_MultiChoiceOption_3"]`).show()
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+
+        $('[id="C_x002e_3_x002e__x0020_Contr_x00_36eba054-295d-452d-87f4-b724f3455107_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit11_41c9b4c8-c23f-4acb-b55d-990ed2edc860_MultiChoiceOption_0').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit11_41c9b4c8-c23f-4acb-b55d-990ed2edc860_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit11_41c9b4c8-c23f-4acb-b55d-990ed2edc860_MultiChoiceOption_2').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit11_41c9b4c8-c23f-4acb-b55d-990ed2edc860_MultiChoiceOption_3').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit11_41c9b4c8-c23f-4acb-b55d-990ed2edc860_MultiChoiceOption_3').hide()
+            $(`label[for="Motifs_x0020_Non_x002d_Conformit11_41c9b4c8-c23f-4acb-b55d-990ed2edc860_MultiChoiceOption_3"]`).hide()
+            $('#Motifs_x0020_Non_x002d_Conformit11_41c9b4c8-c23f-4acb-b55d-990ed2edc860_MultiChoiceOption_3').prop("checked", false);
+
+
+
+        });
+
+        //C4\\
+
+
+        $('[id="C_x002e_4_x002e__x0020_Contr_x00_83273f1c-8999-43f3-8ab6-2b308f0d2d2f_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('C_x002e_4_x002e__x0020_Contr_x00_83273f1c-8999-43f3-8ab6-2b308f0d2d2f_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit10_1f658aec-181a-4ecb-bfb4-e60535f2b379_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit10_1f658aec-181a-4ecb-bfb4-e60535f2b379_MultiChoiceOption_1').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit10_1f658aec-181a-4ecb-bfb4-e60535f2b379_MultiChoiceOption_2').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit10_1f658aec-181a-4ecb-bfb4-e60535f2b379_MultiChoiceOption_3').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit10_1f658aec-181a-4ecb-bfb4-e60535f2b379_MultiChoiceOption_3').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit10_1f658aec-181a-4ecb-bfb4-e60535f2b379_MultiChoiceOption_3').prop("checked", true);
+                $('#Motifs_x0020_Non_x002d_Conformit10_1f658aec-181a-4ecb-bfb4-e60535f2b379_MultiChoiceOption_3').show()
+                $(`label[for="Motifs_x0020_Non_x002d_Conformit10_1f658aec-181a-4ecb-bfb4-e60535f2b379_MultiChoiceOption_3"]`).show()
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+
+        $('[id="C_x002e_4_x002e__x0020_Contr_x00_83273f1c-8999-43f3-8ab6-2b308f0d2d2f_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit10_1f658aec-181a-4ecb-bfb4-e60535f2b379_MultiChoiceOption_0').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit10_1f658aec-181a-4ecb-bfb4-e60535f2b379_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit10_1f658aec-181a-4ecb-bfb4-e60535f2b379_MultiChoiceOption_2').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit10_1f658aec-181a-4ecb-bfb4-e60535f2b379_MultiChoiceOption_3').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit10_1f658aec-181a-4ecb-bfb4-e60535f2b379_MultiChoiceOption_3').hide()
+            $(`label[for="Motifs_x0020_Non_x002d_Conformit10_1f658aec-181a-4ecb-bfb4-e60535f2b379_MultiChoiceOption_3"]`).hide()
+            $('#Motifs_x0020_Non_x002d_Conformit10_1f658aec-181a-4ecb-bfb4-e60535f2b379_MultiChoiceOption_3').prop("checked", false);
+
+
+
+        });
+
+        //C5\\
+
+
+
+        $('[id="C_x002e_5_x002e__x0020_Contr_x00_361aafc6-97b4-4c11-a4e0-34d0b1446fc7_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('C_x002e_5_x002e__x0020_Contr_x00_361aafc6-97b4-4c11-a4e0-34d0b1446fc7_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit9_7f3f53c9-fa11-45a7-b22a-7784b2369cba_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit9_7f3f53c9-fa11-45a7-b22a-7784b2369cba_MultiChoiceOption_1').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit9_7f3f53c9-fa11-45a7-b22a-7784b2369cba_MultiChoiceOption_2').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit9_7f3f53c9-fa11-45a7-b22a-7784b2369cba_MultiChoiceOption_3').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit9_7f3f53c9-fa11-45a7-b22a-7784b2369cba_MultiChoiceOption_3').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit9_7f3f53c9-fa11-45a7-b22a-7784b2369cba_MultiChoiceOption_3').prop("checked", true);
+                $('#Motifs_x0020_Non_x002d_Conformit9_7f3f53c9-fa11-45a7-b22a-7784b2369cba_MultiChoiceOption_3').show()
+                $(`label[for="Motifs_x0020_Non_x002d_Conformit9_7f3f53c9-fa11-45a7-b22a-7784b2369cba_MultiChoiceOption_3"]`).show()
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+
+        $('[id="C_x002e_5_x002e__x0020_Contr_x00_361aafc6-97b4-4c11-a4e0-34d0b1446fc7_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit9_7f3f53c9-fa11-45a7-b22a-7784b2369cba_MultiChoiceOption_0').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit9_7f3f53c9-fa11-45a7-b22a-7784b2369cba_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit9_7f3f53c9-fa11-45a7-b22a-7784b2369cba_MultiChoiceOption_2').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit9_7f3f53c9-fa11-45a7-b22a-7784b2369cba_MultiChoiceOption_3').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit9_7f3f53c9-fa11-45a7-b22a-7784b2369cba_MultiChoiceOption_3').hide()
+            $(`label[for="Motifs_x0020_Non_x002d_Conformit9_7f3f53c9-fa11-45a7-b22a-7784b2369cba_MultiChoiceOption_3"]`).hide()
+            $('#Motifs_x0020_Non_x002d_Conformit9_7f3f53c9-fa11-45a7-b22a-7784b2369cba_MultiChoiceOption_3').prop("checked", false);
+
+
+
+        });
+
+        //C6\\
+
+        $('[id="C_x002e_6_x002e__x0020_Contr_x00_656cf096-c65a-4714-ac1c-5e1bf22e8da4_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('C_x002e_6_x002e__x0020_Contr_x00_656cf096-c65a-4714-ac1c-5e1bf22e8da4_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit8_4f6c4a31-c887-49b6-adaa-bc08a81abb32_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit8_4f6c4a31-c887-49b6-adaa-bc08a81abb32_MultiChoiceOption_1').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit8_4f6c4a31-c887-49b6-adaa-bc08a81abb32_MultiChoiceOption_2').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit8_4f6c4a31-c887-49b6-adaa-bc08a81abb32_MultiChoiceOption_3').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit8_4f6c4a31-c887-49b6-adaa-bc08a81abb32_MultiChoiceOption_4').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit8_4f6c4a31-c887-49b6-adaa-bc08a81abb32_MultiChoiceOption_5').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit8_4f6c4a31-c887-49b6-adaa-bc08a81abb32_MultiChoiceOption_5').prop("checked", true);
+                $('#Motifs_x0020_Non_x002d_Conformit8_4f6c4a31-c887-49b6-adaa-bc08a81abb32_MultiChoiceOption_5').show()
+                $(`label[for="Motifs_x0020_Non_x002d_Conformit8_4f6c4a31-c887-49b6-adaa-bc08a81abb32_MultiChoiceOption_5"]`).show()
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+
+        $('[id="C_x002e_6_x002e__x0020_Contr_x00_656cf096-c65a-4714-ac1c-5e1bf22e8da4_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit8_4f6c4a31-c887-49b6-adaa-bc08a81abb32_MultiChoiceOption_0').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit8_4f6c4a31-c887-49b6-adaa-bc08a81abb32_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit8_4f6c4a31-c887-49b6-adaa-bc08a81abb32_MultiChoiceOption_2').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit8_4f6c4a31-c887-49b6-adaa-bc08a81abb32_MultiChoiceOption_3').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit8_4f6c4a31-c887-49b6-adaa-bc08a81abb32_MultiChoiceOption_4').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit8_4f6c4a31-c887-49b6-adaa-bc08a81abb32_MultiChoiceOption_5').prop("disabled", true);
+            $('#Motifs_x0020_Non_x002d_Conformit8_4f6c4a31-c887-49b6-adaa-bc08a81abb32_MultiChoiceOption_5').hide()
+            $(`label[for="Motifs_x0020_Non_x002d_Conformit8_4f6c4a31-c887-49b6-adaa-bc08a81abb32_MultiChoiceOption_5"]`).hide()
+            $('#Motifs_x0020_Non_x002d_Conformit8_4f6c4a31-c887-49b6-adaa-bc08a81abb32_MultiChoiceOption_5').prop("checked", false);
+
+
+
+        });
+
+        //C7\\
+
+        $('[id="C_x002e_7_x002e__x0020_Contr_x00_ab308357-5939-44aa-bcad-0079c065d071_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('C_x002e_7_x002e__x0020_Contr_x00_ab308357-5939-44aa-bcad-0079c065d071_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit7_dc2a1cb4-26c7-4837-9093-4b51d13806ce_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit7_dc2a1cb4-26c7-4837-9093-4b51d13806ce_MultiChoiceOption_1').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit7_dc2a1cb4-26c7-4837-9093-4b51d13806ce_MultiChoiceOption_2').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit7_dc2a1cb4-26c7-4837-9093-4b51d13806ce_MultiChoiceOption_2').prop("checked", true);
+                $('#Motifs_x0020_Non_x002d_Conformit7_dc2a1cb4-26c7-4837-9093-4b51d13806ce_MultiChoiceOption_2').show()
+                $(`label[for="Motifs_x0020_Non_x002d_Conformit7_dc2a1cb4-26c7-4837-9093-4b51d13806ce_MultiChoiceOption_2"]`).show()
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+
+        $('[id="C_x002e_7_x002e__x0020_Contr_x00_ab308357-5939-44aa-bcad-0079c065d071_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit7_dc2a1cb4-26c7-4837-9093-4b51d13806ce_MultiChoiceOption_0').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit7_dc2a1cb4-26c7-4837-9093-4b51d13806ce_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit7_dc2a1cb4-26c7-4837-9093-4b51d13806ce_MultiChoiceOption_2').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit7_dc2a1cb4-26c7-4837-9093-4b51d13806ce_MultiChoiceOption_2').hide()
+            $(`label[for="Motifs_x0020_Non_x002d_Conformit7_dc2a1cb4-26c7-4837-9093-4b51d13806ce_MultiChoiceOption_2"]`).hide()
+            $('#Motifs_x0020_Non_x002d_Conformit7_dc2a1cb4-26c7-4837-9093-4b51d13806ce_MultiChoiceOption_2').prop("checked", false);
+
+
+
+        });
+
+        //C8\\
+
+        $('[id="C_x002e_8_x002e__x0020_Contr_x00_8b0c2030-eeca-427e-acd4-a5e5f8126913_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('C_x002e_8_x002e__x0020_Contr_x00_8b0c2030-eeca-427e-acd4-a5e5f8126913_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_1').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_2').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_3').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_4').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_5').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_6').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_6').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_6').prop("checked", true);
+                $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_6').show()
+                $(`label[for="Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_6"]`).show()
+
+            }
+
+        });
+
+
+        //if the Conforme box is NOT checked
+
+        $('[id="C_x002e_8_x002e__x0020_Contr_x00_8b0c2030-eeca-427e-acd4-a5e5f8126913_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_0').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_2').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_3').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_4').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_5').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_6').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_6').hide()
+            $(`label[for="Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_6"]`).hide()
+            $('#Motifs_x0020_Non_x002d_Conformit6_4ae16e94-95b3-4162-80d3-97bac4f57444_MultiChoiceOption_6').prop("checked", false);
+
+
+
+        });
+        //C9\\
+
+
+        $('[id="C_x002e_9_x002e__x0020_Contr_x00_38d31efd-944a-4c9a-84da-0a902910315d_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('C_x002e_9_x002e__x0020_Contr_x00_38d31efd-944a-4c9a-84da-0a902910315d_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit5_847934b8-833a-4fe2-9fae-e4197caf131d_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit5_847934b8-833a-4fe2-9fae-e4197caf131d_MultiChoiceOption_1').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit5_847934b8-833a-4fe2-9fae-e4197caf131d_MultiChoiceOption_2').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit5_847934b8-833a-4fe2-9fae-e4197caf131d_MultiChoiceOption_2').prop("checked", true);
+                $('#Motifs_x0020_Non_x002d_Conformit5_847934b8-833a-4fe2-9fae-e4197caf131d_MultiChoiceOption_2').show()
+                $(`label[for="Motifs_x0020_Non_x002d_Conformit5_847934b8-833a-4fe2-9fae-e4197caf131d_MultiChoiceOption_2"]`).show()
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+
+        $('[id="C_x002e_9_x002e__x0020_Contr_x00_38d31efd-944a-4c9a-84da-0a902910315d_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit5_847934b8-833a-4fe2-9fae-e4197caf131d_MultiChoiceOption_0').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit5_847934b8-833a-4fe2-9fae-e4197caf131d_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit5_847934b8-833a-4fe2-9fae-e4197caf131d_MultiChoiceOption_2').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit5_847934b8-833a-4fe2-9fae-e4197caf131d_MultiChoiceOption_2').hide()
+            $(`label[for="Motifs_x0020_Non_x002d_Conformit5_847934b8-833a-4fe2-9fae-e4197caf131d_MultiChoiceOption_2"]`).hide()
+            $('#Motifs_x0020_Non_x002d_Conformit5_847934b8-833a-4fe2-9fae-e4197caf131d_MultiChoiceOption_2').prop("checked", false);
+
 
 
         });
@@ -221,8 +1339,352 @@
 
 
 
+        //C10\\
 
-        //B section-------------------------------------------------------------------------------------------------------------------------
+        $('[id="C_x002e_10_x002e__x0020_Contr_x0_c3bc4119-0b94-469c-a773-a0bf782db582_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('C_x002e_10_x002e__x0020_Contr_x0_c3bc4119-0b94-469c-a773-a0bf782db582_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit15_e0158447-fbe3-4f37-a762-6d3413b5098c_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit15_e0158447-fbe3-4f37-a762-6d3413b5098c_MultiChoiceOption_1').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit15_e0158447-fbe3-4f37-a762-6d3413b5098c_MultiChoiceOption_2').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit15_e0158447-fbe3-4f37-a762-6d3413b5098c_MultiChoiceOption_2').prop("checked", true);
+                $('#Motifs_x0020_Non_x002d_Conformit15_e0158447-fbe3-4f37-a762-6d3413b5098c_MultiChoiceOption_2').show()
+                $(`label[for="Motifs_x0020_Non_x002d_Conformit15_e0158447-fbe3-4f37-a762-6d3413b5098c_MultiChoiceOption_2"]`).show()
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+
+        $('[id="C_x002e_10_x002e__x0020_Contr_x0_c3bc4119-0b94-469c-a773-a0bf782db582_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit15_e0158447-fbe3-4f37-a762-6d3413b5098c_MultiChoiceOption_0').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit15_e0158447-fbe3-4f37-a762-6d3413b5098c_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit15_e0158447-fbe3-4f37-a762-6d3413b5098c_MultiChoiceOption_2').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit15_e0158447-fbe3-4f37-a762-6d3413b5098c_MultiChoiceOption_2').hide()
+            $(`label[for="Motifs_x0020_Non_x002d_Conformit15_e0158447-fbe3-4f37-a762-6d3413b5098c_MultiChoiceOption_2"]`).hide()
+            $('#Motifs_x0020_Non_x002d_Conformit15_e0158447-fbe3-4f37-a762-6d3413b5098c_MultiChoiceOption_2').prop("checked", false);
+
+
+
+        });
+
+
+        //C11\\
+
+        $('[id="C_x002e_11_x002e__x0020_Contr_x0_47c8e59b-96f5-4427-aff8-f23cbf74e3b6_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('C_x002e_11_x002e__x0020_Contr_x0_47c8e59b-96f5-4427-aff8-f23cbf74e3b6_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit14_1642885e-ca21-4119-b631-c24cc77f5dca_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit14_1642885e-ca21-4119-b631-c24cc77f5dca_MultiChoiceOption_1').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit14_1642885e-ca21-4119-b631-c24cc77f5dca_MultiChoiceOption_1').prop("checked", true);
+                $('#Motifs_x0020_Non_x002d_Conformit14_1642885e-ca21-4119-b631-c24cc77f5dca_MultiChoiceOption_1').show()
+                $(`label[for="Motifs_x0020_Non_x002d_Conformit14_1642885e-ca21-4119-b631-c24cc77f5dca_MultiChoiceOption_1"]`).show()
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+
+        $('[id="C_x002e_11_x002e__x0020_Contr_x0_47c8e59b-96f5-4427-aff8-f23cbf74e3b6_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit14_1642885e-ca21-4119-b631-c24cc77f5dca_MultiChoiceOption_0').prop("disabled", false);
+
+            $('#Motifs_x0020_Non_x002d_Conformit14_1642885e-ca21-4119-b631-c24cc77f5dca_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit14_1642885e-ca21-4119-b631-c24cc77f5dca_MultiChoiceOption_1').hide()
+            $(`label[for="Motifs_x0020_Non_x002d_Conformit14_1642885e-ca21-4119-b631-c24cc77f5dca_MultiChoiceOption_1"]`).hide()
+            $('#Motifs_x0020_Non_x002d_Conformit14_1642885e-ca21-4119-b631-c24cc77f5dca_MultiChoiceOption_1').prop("checked", false);
+
+
+
+        });
+
+
+        //C12\\
+
+        $('[id="C_x002e_12_x002e__x0020_Contr_x0_bb05b618-9cc6-4477-8849-73a94a4d874e_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('C_x002e_12_x002e__x0020_Contr_x0_bb05b618-9cc6-4477-8849-73a94a4d874e_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit13_b2962f34-8c8d-4cf8-8533-96816faf8346_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit13_b2962f34-8c8d-4cf8-8533-96816faf8346_MultiChoiceOption_1').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit13_b2962f34-8c8d-4cf8-8533-96816faf8346_MultiChoiceOption_2').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit13_b2962f34-8c8d-4cf8-8533-96816faf8346_MultiChoiceOption_3').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit13_b2962f34-8c8d-4cf8-8533-96816faf8346_MultiChoiceOption_4').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit13_b2962f34-8c8d-4cf8-8533-96816faf8346_MultiChoiceOption_4').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit13_b2962f34-8c8d-4cf8-8533-96816faf8346_MultiChoiceOption_4').prop("checked", true);
+                $('#Motifs_x0020_Non_x002d_Conformit13_b2962f34-8c8d-4cf8-8533-96816faf8346_MultiChoiceOption_4').show()
+                $(`label[for="Motifs_x0020_Non_x002d_Conformit13_b2962f34-8c8d-4cf8-8533-96816faf8346_MultiChoiceOption_4"]`).show()
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+
+        $('[id="C_x002e_12_x002e__x0020_Contr_x0_bb05b618-9cc6-4477-8849-73a94a4d874e_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit13_b2962f34-8c8d-4cf8-8533-96816faf8346_MultiChoiceOption_0').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit13_b2962f34-8c8d-4cf8-8533-96816faf8346_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit13_b2962f34-8c8d-4cf8-8533-96816faf8346_MultiChoiceOption_2').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit13_b2962f34-8c8d-4cf8-8533-96816faf8346_MultiChoiceOption_3').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit13_b2962f34-8c8d-4cf8-8533-96816faf8346_MultiChoiceOption_4').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit13_b2962f34-8c8d-4cf8-8533-96816faf8346_MultiChoiceOption_4').hide()
+            $(`label[for="Motifs_x0020_Non_x002d_Conformit13_b2962f34-8c8d-4cf8-8533-96816faf8346_MultiChoiceOption_4"]`).hide()
+            $('#Motifs_x0020_Non_x002d_Conformit13_b2962f34-8c8d-4cf8-8533-96816faf8346_MultiChoiceOption_4').prop("checked", false);
+
+
+
+        });
+
+
+        //D section -------------------------------------------------------------------------------------------------------------------
+
+
+
+        //D1\\
+
+        $('[id="D_x002e_1_x002e__x0020_Contr_x00_481a1691-b391-4a2c-b5df-2e6965dbc523_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('D_x002e_1_x002e__x0020_Contr_x00_481a1691-b391-4a2c-b5df-2e6965dbc523_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_1').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_2').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_3').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_4').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_5').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_6').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_6').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_6').prop("checked", true);
+                $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_6').show()
+                $(`label[for="Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_6"]`).show()
+
+            }
+
+        });
+
+
+        //if the Conforme box is NOT checked
+
+        $('[id="D_x002e_1_x002e__x0020_Contr_x00_481a1691-b391-4a2c-b5df-2e6965dbc523_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_0').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_2').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_3').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_4').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_5').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_6').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_6').hide()
+            $(`label[for="Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_6"]`).hide()
+            $('#Motifs_x0020_Non_x002d_Conformit4_51c7b4f5-44ae-4ce7-9f2d-26c27fc4cdf9_MultiChoiceOption_6').prop("checked", false);
+
+
+
+        });
+
+        //D2\\
+
+        $('[id="D_x002e_2_x002e__x0020_Contr_x00_bafe8b38-c61c-43fa-ad93-8d325628fd58_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('D_x002e_2_x002e__x0020_Contr_x00_bafe8b38-c61c-43fa-ad93-8d325628fd58_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit3_6050703d-770f-4360-94d9-835592577482_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit3_6050703d-770f-4360-94d9-835592577482_MultiChoiceOption_1').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit3_6050703d-770f-4360-94d9-835592577482_MultiChoiceOption_2').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit3_6050703d-770f-4360-94d9-835592577482_MultiChoiceOption_3').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit3_6050703d-770f-4360-94d9-835592577482_MultiChoiceOption_3').prop("checked", true);
+                $('#Motifs_x0020_Non_x002d_Conformit3_6050703d-770f-4360-94d9-835592577482_MultiChoiceOption_3').show()
+                $(`label[for="Motifs_x0020_Non_x002d_Conformit3_6050703d-770f-4360-94d9-835592577482_MultiChoiceOption_3"]`).show()
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+
+        $('[id="D_x002e_2_x002e__x0020_Contr_x00_bafe8b38-c61c-43fa-ad93-8d325628fd58_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit3_6050703d-770f-4360-94d9-835592577482_MultiChoiceOption_0').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit3_6050703d-770f-4360-94d9-835592577482_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit3_6050703d-770f-4360-94d9-835592577482_MultiChoiceOption_2').prop("disabled", false);
+
+            $('#Motifs_x0020_Non_x002d_Conformit3_6050703d-770f-4360-94d9-835592577482_MultiChoiceOption_3').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit3_6050703d-770f-4360-94d9-835592577482_MultiChoiceOption_3').hide()
+            $(`label[for="Motifs_x0020_Non_x002d_Conformit3_6050703d-770f-4360-94d9-835592577482_MultiChoiceOption_3"]`).hide()
+            $('#Motifs_x0020_Non_x002d_Conformit3_6050703d-770f-4360-94d9-835592577482_MultiChoiceOption_3').prop("checked", false);
+
+
+
+        });
+
+        //D3\\
+
+
+        $('[id="D_x002e_3_x002e__x0020_Contr_x00_d786fcc1-fccf-4737-aad2-b936224c67fa_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('D_x002e_3_x002e__x0020_Contr_x00_d786fcc1-fccf-4737-aad2-b936224c67fa_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit2_ebbde5c8-b08d-41db-9992-a279d055789c_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit2_ebbde5c8-b08d-41db-9992-a279d055789c_MultiChoiceOption_1').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit2_ebbde5c8-b08d-41db-9992-a279d055789c_MultiChoiceOption_2').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit2_ebbde5c8-b08d-41db-9992-a279d055789c_MultiChoiceOption_3').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit2_ebbde5c8-b08d-41db-9992-a279d055789c_MultiChoiceOption_4').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit2_ebbde5c8-b08d-41db-9992-a279d055789c_MultiChoiceOption_4').prop("checked", true);
+                $('#Motifs_x0020_Non_x002d_Conformit2_ebbde5c8-b08d-41db-9992-a279d055789c_MultiChoiceOption_4').show()
+                $(`label[for="Motifs_x0020_Non_x002d_Conformit2_ebbde5c8-b08d-41db-9992-a279d055789c_MultiChoiceOption_4"]`).show()
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+
+        $('[id="D_x002e_3_x002e__x0020_Contr_x00_d786fcc1-fccf-4737-aad2-b936224c67fa_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit2_ebbde5c8-b08d-41db-9992-a279d055789c_MultiChoiceOption_0').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit2_ebbde5c8-b08d-41db-9992-a279d055789c_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit2_ebbde5c8-b08d-41db-9992-a279d055789c_MultiChoiceOption_2').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit2_ebbde5c8-b08d-41db-9992-a279d055789c_MultiChoiceOption_3').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit2_ebbde5c8-b08d-41db-9992-a279d055789c_MultiChoiceOption_4').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit2_ebbde5c8-b08d-41db-9992-a279d055789c_MultiChoiceOption_4').hide()
+            $(`label[for="Motifs_x0020_Non_x002d_Conformit2_ebbde5c8-b08d-41db-9992-a279d055789c_MultiChoiceOption_4"]`).hide()
+            $('#Motifs_x0020_Non_x002d_Conformit2_ebbde5c8-b08d-41db-9992-a279d055789c_MultiChoiceOption_4').prop("checked", false);
+
+
+
+        });
+
+        //D4\\
+
+        $('[id="D_x002e_4_x002e__x0020_Contr_x00_fe306c5b-c35b-4c92-9d0e-7ac1ef98637f_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('D_x002e_4_x002e__x0020_Contr_x00_fe306c5b-c35b-4c92-9d0e-7ac1ef98637f_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit1_a916ed06-2e9a-4644-8880-eb0dbf16d4a6_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit1_a916ed06-2e9a-4644-8880-eb0dbf16d4a6_MultiChoiceOption_1').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit1_a916ed06-2e9a-4644-8880-eb0dbf16d4a6_MultiChoiceOption_1').prop("checked", true);
+                $('#Motifs_x0020_Non_x002d_Conformit1_a916ed06-2e9a-4644-8880-eb0dbf16d4a6_MultiChoiceOption_1').show()
+                $(`label[for="Motifs_x0020_Non_x002d_Conformit1_a916ed06-2e9a-4644-8880-eb0dbf16d4a6_MultiChoiceOption_1"]`).show()
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+
+        $('[id="D_x002e_4_x002e__x0020_Contr_x00_fe306c5b-c35b-4c92-9d0e-7ac1ef98637f_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit1_a916ed06-2e9a-4644-8880-eb0dbf16d4a6_MultiChoiceOption_0').prop("disabled", false);
+
+            $('#Motifs_x0020_Non_x002d_Conformit1_a916ed06-2e9a-4644-8880-eb0dbf16d4a6_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit1_a916ed06-2e9a-4644-8880-eb0dbf16d4a6_MultiChoiceOption_1').hide()
+            $(`label[for="Motifs_x0020_Non_x002d_Conformit1_a916ed06-2e9a-4644-8880-eb0dbf16d4a6_MultiChoiceOption_1"]`).hide()
+            $('#Motifs_x0020_Non_x002d_Conformit1_a916ed06-2e9a-4644-8880-eb0dbf16d4a6_MultiChoiceOption_1').prop("checked", false);
+
+
+
+        });
+
+        //D5\\
+
+        // No changes
+
+
+
+        //E section --------------------------------------------------------------------------------------------------------------------
+
+        $('[id="E_x002e_1_x002e__x0020_V_x00e9_r_a3860c5d-fc90-4253-acb3-dbe37f8baa32_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('E_x002e_1_x002e__x0020_V_x00e9_r_a3860c5d-fc90-4253-acb3-dbe37f8baa32_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit0_e5f8cd41-95d6-46d8-8226-a38b6510b01d_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit0_e5f8cd41-95d6-46d8-8226-a38b6510b01d_MultiChoiceOption_1').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit0_e5f8cd41-95d6-46d8-8226-a38b6510b01d_MultiChoiceOption_2').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit0_e5f8cd41-95d6-46d8-8226-a38b6510b01d_MultiChoiceOption_3').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit0_e5f8cd41-95d6-46d8-8226-a38b6510b01d_MultiChoiceOption_4').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit0_e5f8cd41-95d6-46d8-8226-a38b6510b01d_MultiChoiceOption_4').prop("checked", true);
+                $('#Motifs_x0020_Non_x002d_Conformit0_e5f8cd41-95d6-46d8-8226-a38b6510b01d_MultiChoiceOption_4').show()
+                $(`label[for="Motifs_x0020_Non_x002d_Conformit0_e5f8cd41-95d6-46d8-8226-a38b6510b01d_MultiChoiceOption_4"]`).show()
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+
+        $('[id="E_x002e_1_x002e__x0020_V_x00e9_r_a3860c5d-fc90-4253-acb3-dbe37f8baa32_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit0_e5f8cd41-95d6-46d8-8226-a38b6510b01d_MultiChoiceOption_0').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit0_e5f8cd41-95d6-46d8-8226-a38b6510b01d_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit0_e5f8cd41-95d6-46d8-8226-a38b6510b01d_MultiChoiceOption_2').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit0_e5f8cd41-95d6-46d8-8226-a38b6510b01d_MultiChoiceOption_3').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit0_e5f8cd41-95d6-46d8-8226-a38b6510b01d_MultiChoiceOption_4').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit0_e5f8cd41-95d6-46d8-8226-a38b6510b01d_MultiChoiceOption_4').hide()
+            $(`label[for="Motifs_x0020_Non_x002d_Conformit0_e5f8cd41-95d6-46d8-8226-a38b6510b01d_MultiChoiceOption_4"]`).hide()
+            $('#Motifs_x0020_Non_x002d_Conformit0_e5f8cd41-95d6-46d8-8226-a38b6510b01d_MultiChoiceOption_4').prop("checked", false);
+
+
+
+        });
+
+        //E2\\
+
+        $('[id="E_x002e_2_x002e__x0020_Contr_x00_70a0a4d5-f4c3-4b87-9ae3-d153a75999e2_$RadioButtonChoiceField0"]').on('change', function () {
+            var checkB = document.getElementById('E_x002e_2_x002e__x0020_Contr_x00_70a0a4d5-f4c3-4b87-9ae3-d153a75999e2_$RadioButtonChoiceField0').checked;
+
+
+            if (checkB) {
+
+                $('#Motifs_x0020_Non_x002d_Conformit_b454fcb9-2872-4ca7-9575-e100d9fedfcf_MultiChoiceOption_0').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit_b454fcb9-2872-4ca7-9575-e100d9fedfcf_MultiChoiceOption_1').prop("disabled", true);
+                $('#Motifs_x0020_Non_x002d_Conformit_b454fcb9-2872-4ca7-9575-e100d9fedfcf_MultiChoiceOption_2').prop("disabled", false);
+                $('#Motifs_x0020_Non_x002d_Conformit_b454fcb9-2872-4ca7-9575-e100d9fedfcf_MultiChoiceOption_2').prop("checked", true);
+                $('#Motifs_x0020_Non_x002d_Conformit_b454fcb9-2872-4ca7-9575-e100d9fedfcf_MultiChoiceOption_2').show()
+                $(`label[for="Motifs_x0020_Non_x002d_Conformit_b454fcb9-2872-4ca7-9575-e100d9fedfcf_MultiChoiceOption_2"]`).show()
+
+            }
+
+        });
+
+        //if the Conforme box is NOT checked
+
+        $('[id="E_x002e_2_x002e__x0020_Contr_x00_70a0a4d5-f4c3-4b87-9ae3-d153a75999e2_$RadioButtonChoiceField1"]').on('change', function () {
+
+            $('#Motifs_x0020_Non_x002d_Conformit_b454fcb9-2872-4ca7-9575-e100d9fedfcf_MultiChoiceOption_0').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit_b454fcb9-2872-4ca7-9575-e100d9fedfcf_MultiChoiceOption_1').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit_b454fcb9-2872-4ca7-9575-e100d9fedfcf_MultiChoiceOption_2').prop("disabled", false);
+            $('#Motifs_x0020_Non_x002d_Conformit_b454fcb9-2872-4ca7-9575-e100d9fedfcf_MultiChoiceOption_2').hide()
+            $(`label[for="Motifs_x0020_Non_x002d_Conformit_b454fcb9-2872-4ca7-9575-e100d9fedfcf_MultiChoiceOption_2"]`).hide()
+            $('#Motifs_x0020_Non_x002d_Conformit_b454fcb9-2872-4ca7-9575-e100d9fedfcf_MultiChoiceOption_2').prop("checked", false);
+
+
+
+        });
+
+
+
 
     }
 
