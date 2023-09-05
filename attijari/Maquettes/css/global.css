@@ -1,6 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Ysabeau+SC:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ysabeau+SC:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&family=Ysabeau+SC:wght@200&display=swap');
+
+
+.charge .card-text {
+    background-color: #F2F2F2;
+    color: #333;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+  
+}
+#navbar{
+    width: 1600px;
+}
+
+
 .p{
     font-family: 'Quicksand', sans-serif;
     font-size: 25px;
@@ -52,36 +67,46 @@ body{
 
 .inBoxFont{
     font-size: 13px;
+   
 }
 .inBoxFont2{
     font-size: 15px;
+    /* background-color: #F2F2F2;
+    border-radius: 50%; */
+    
 }
 .table1{
-    width: 100%;
-    position: absolute;
-    /* left: 50%;
-    top: -342px; */
+    width: 35%;
+    position: relative;
+    left: 50%;
+    top: -800px;
     padding-bottom: 50px;
 }
 .selecting{
     padding-left: 20px;
 }
-
+.graphComponent{
+position: relative;
+right: 50%;
+    top: 800px;
+}
 
 .chart{
     position: relative;
-    display: flex;
+    left: 200px;
+/*    
   justify-content: center; 
   align-items: center;
-  padding-top: 30px;
-  left:1000px;
+  padding-top: 30px; */
+  left:750px;
   top:-900px
 }
 #graphTitle{
     padding-top: 100px;
     position: relative;
     top:-970px;
-    left:1500px
+    left:1450px;
+    width: 700px;
 }
 
 
@@ -94,20 +119,22 @@ body{
     width: 200px;
   }
 
+  .selectsDiv{
+    position: relative;
+    left: -170px;
+  }
+
   .h1{
     font-family: 'Quicksand', sans-serif;
     color: azure;
   }
 
-  /* .cards{
-    width: 800px; 
+  .cards{
+    width: 1800px; 
    
-    border-radius: 10px;
-    overflow: hidden; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: rgb(255, 255, 255);
     
-} */
+    
+}
 
 
 /* .position{
@@ -144,7 +171,6 @@ body{
 }Charge Réelle
 
 
-
 /* Customize card background color and text color */
 .charge .card-text {
     background-color: #F2F2F2;
@@ -152,6 +178,7 @@ body{
     padding: 5px;
     border-radius: 5px;
     font-weight: bold;
+  
 }
 
 /* Style for the "Glissement de" text */
@@ -159,10 +186,10 @@ body{
     font-size: 1.1rem;
 }
 
-/* Set a maximum width for the cards to keep them square */
+
 .charge .card {
-    max-width: 200px; /* You can adjust this value as needed */
-    height: 200px; /* To ensure a square shape */
+    max-width: 200px; 
+    height: 200px; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -175,3 +202,19 @@ body{
     justify-content: space-between;
 }
 
+
+/* @media screen and (max-width : 1180px){
+    .graphComponent{
+        display: none;
+    }
+    .table1{
+        display: none;
+    }
+.firstCards{
+    display: none;
+}
+.navbar{
+    width: 100px;
+}
+
+} */

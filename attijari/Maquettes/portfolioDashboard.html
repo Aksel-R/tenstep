@@ -52,7 +52,7 @@
     </div>
   </div> -->
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-danger">
+  <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-danger">
 
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
       data-toggle="collapse" data-target="#navbarNav" data-bs-target="#offcanvasScrolling"
@@ -62,11 +62,11 @@
 
 
 
-    <div class="collapse navbar-collapse select" id="navbarNav">
+    <div class="collapse navbar-collapse select selectsDiv" id="navbarNav">
       <img class="img" src="https://www.charika.ma//ressources/logo/1762.jpg"
-        style="width: 100px; position: relative; left: -30%;" />
+        style="width: 100px; position: relative; left: -15%;" />
 
-      <h1 class="h1">APPERCU DE PORTEFEUILLE</h1>
+      <h1 class="h1" style="color: white;  font-size: 30px; ">APPERCU DE PORTEFEUILLE</h1>
       <div id="selects">
         <ul class="navbar-nav ">
 
@@ -115,7 +115,7 @@
     <div class="col card1 text-center">
       <div class="card h-100">
         <img
-          src="https://everythingproperty.co.za/wp-content/uploads/2022/12/23-tips-to-run-your-business-better-in-2023--2048x1152.jpg"
+          src="https://media.istockphoto.com/id/1311598658/photo/businessman-trading-online-stock-market-on-teblet-screen-digital-investment-concept.webp?b=1&s=170667a&w=0&k=20&c=F4ePFhK7r539j0_I2l1Zi01SX5ESqTvu_NtqjjOUoNQ="
           class="card-img-top" alt="...">
         <div class="card-body text-bg-danger">
           <p class="card-title h2" id="secondCard" style="color: rgb(255, 255, 255);">Nombre de portefeuille</p>
@@ -132,7 +132,7 @@
         <div class="row row-cols-1 row-cols-md-3 g-4">
           <div class="col card2 text-center">
             <div class="card h-100 text-bg-danger mb-3">
-              <div class="card-body" style="background-color: rgba(252, 252, 252, 0.1);">
+              <div class="card-body" >
                 <p class="card-title inBoxFont h3">Charge planifiée</p>
                 <p class="card-text inBoxFont2 p" id="planifiee">X h</p>
               </div>
@@ -166,7 +166,7 @@
       <div class="col card2 text-center">
         <div class="card h-100 text-bg-danger mb-3">
           <div class="card-body">
-            <p class="card-title inBoxFont h3">Cout&emsp; planifiée</p>
+            <p class="card-title inBoxFont h3">coût&emsp; planifiée</p>
             <p class="card-text inBoxFont2 p" id="cost">X DT</p>
           </div>
         </div>
@@ -174,7 +174,7 @@
       <div class="col card2 text-center">
         <div class="card h-100 text-bg-danger mb-3">
           <div class="card-body">
-            <p class="card-title inBoxFont h3">Cout Réel</p>
+            <p class="card-title inBoxFont h3">Le coût &nbsp;&nbsp;Réelle </p>
             <p class="card-text inBoxFont2 p" id="actualCost">Y h</p>
           </div>
         </div>
@@ -182,7 +182,7 @@
       <div class="col card2 text-center">
         <div class="card h-100 text-bg-danger mb-3">
           <div class="card-body">
-            <p class="card-title inBoxFont h3">Glissement de cout</p>
+            <p class="card-title inBoxFont h3">Glissement de coût</p>
             <p class="card-text inBoxFont2 p" id="Glicost">Y-X DT</p>
           </div>
         </div>
@@ -204,7 +204,7 @@
       <div class="col card2 text-center">
         <div class="card h-100 text-bg-danger mb-3">
           <div class="card-body">
-            <p class="card-title inBoxFont h3">Durée Réelle</p>
+            <p class="card-title inBoxFont h3">La Durée &nbsp;&nbsp;Réelle</p>
             <p class="card-text inBoxFont2 p" id="PAduration">Y J</p>
           </div>
         </div>
@@ -224,13 +224,8 @@
 
 
   </div>
-  <div class="h2" id="graphTitle" style="position: relative; margin: 0 auto;;">
-    % achevé des portefeuilles
-  </div>
-  <div class="chart">
-
-    <div id='myDiv2'></div>
-  </div>
+ 
+  
   <div class="table1">
     <table class="table table-warning">
       <thead>
@@ -245,7 +240,18 @@
 
       </tbody>
     </table>
+  </div>
 
+  <div class="graphComponent">
+
+    <div class="h2" id="graphTitle" ">
+      % achevé des portefeuilles
+    </div>
+    <div class="chart" >
+  
+      <div id='myDiv2'></div>
+    </div>
+  </div>
     <script src="https://code.jquery.com/jquery-3.7.0.js"
       integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

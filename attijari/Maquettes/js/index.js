@@ -458,11 +458,12 @@ function chart() {
   ];
   var layout = {
     margin: {
-      l: 350, // Increase the left margin to provide more space
+      l: 350
+     
     },
-    width: 900,
+    width: 1400,
     yaxis: {
-      width: 800,
+      width: 1000,
       tickfont: { size: 11 },
       // tickangle: -45
     },
