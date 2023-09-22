@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "chat-gpt-web-part-client-side-solution",
+    "id": "0e05e581-b01f-42c3-945a-1d2af453e7b8",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.17.4"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "ChatGptWebPart description"
+      },
+      "longDescription": {
+        "default": "ChatGptWebPart description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "chat-gpt-web-part Feature",
+        "description": "The feature that activates elements of the chat-gpt-web-part solution.",
+        "id": "1131f818-49f8-400b-8b4e-aa57b6211c72",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/chat-gpt-web-part.sppkg"
+  }
+}

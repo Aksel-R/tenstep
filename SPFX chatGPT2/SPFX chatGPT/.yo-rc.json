@@ -1,0 +1,21 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "18.17.1",
+    "sdksVersions": {
+      "@microsoft/microsoft-graph-client": "3.0.2",
+      "@microsoft/teams-js": "2.9.1"
+    },
+    "version": "1.17.4",
+    "libraryName": "chat-gpt-web-part",
+    "libraryId": "0e05e581-b01f-42c3-945a-1d2af453e7b8",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "ChatGptWebPart",
+    "solutionShortDescription": "ChatGptWebPart description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

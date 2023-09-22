@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "chat-gpt-web-part-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/chatGptWebPart/ChatGptWebPartWebPart.js",
+          "manifest": "./src/webparts/chatGptWebPart/ChatGptWebPartWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "ChatGptWebPartWebPartStrings": "lib/webparts/chatGptWebPart/loc/{locale}.js"
+  }
+}

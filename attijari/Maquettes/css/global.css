@@ -2,7 +2,68 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ysabeau+SC:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&family=Ysabeau+SC:wght@200&display=swap');
 
+#graphTitle{
+    padding-top: 100px;
+    position: relative;
+    top:-970px;
+    left:1450px;
+    width: 700px;
+}
 
+
+#navbar{
+    width: 1600px;
+}
+
+.graphComponent{
+    position: relative;
+    right: 50%;
+        top: 800px;
+    }
+
+.table1{
+    width: 35%;
+    position: relative;
+    left: 50%;
+    top: -800px;
+    padding-bottom: 50px;
+}
+
+@media screen and (max-width : 1180px){
+    .row{
+        overflow-x: hidden;
+    }
+
+    #graphTitle{
+        padding-top: 100px;
+        position: relative;
+        top:-970px;
+        left:900px;
+        width: 700px;
+    }
+    .graphComponent{
+        position: relative;
+        right: 50%;
+           padding-top: 300px;
+        }
+    .table1{
+        width: 35%;
+        position: relative;
+        left: 0%;
+        top: 200px;
+        padding-bottom: 50px;
+    }
+#firstCards{
+    position: relative;
+    right: 30%;
+    
+}
+#navbar{
+    width: 200px;
+}
+
+
+}
 .charge .card-text {
     background-color: #F2F2F2;
     color: #333;
@@ -10,9 +71,6 @@
     border-radius: 5px;
     font-weight: bold;
   
-}
-#navbar{
-    width: 1600px;
 }
 
 
@@ -75,21 +133,11 @@ body{
     border-radius: 50%; */
     
 }
-.table1{
-    width: 35%;
-    position: relative;
-    left: 50%;
-    top: -800px;
-    padding-bottom: 50px;
-}
+
 .selecting{
     padding-left: 20px;
 }
-.graphComponent{
-position: relative;
-right: 50%;
-    top: 800px;
-}
+
 
 .chart{
     position: relative;
@@ -101,13 +149,7 @@ right: 50%;
   left:750px;
   top:-900px
 }
-#graphTitle{
-    padding-top: 100px;
-    position: relative;
-    top:-970px;
-    left:1450px;
-    width: 700px;
-}
+
 
 
   #selects{
@@ -203,18 +245,3 @@ right: 50%;
 }
 
 
-/* @media screen and (max-width : 1180px){
-    .graphComponent{
-        display: none;
-    }
-    .table1{
-        display: none;
-    }
-.firstCards{
-    display: none;
-}
-.navbar{
-    width: 100px;
-}
-
-} */
